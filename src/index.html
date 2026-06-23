@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="hu-HU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="lang" content="hu-HU" />
+    <title>DRWORK - Munkaruhák</title>
+    <meta
+      name="description"
+      content="Egyedi munkaruhák professzionális nyomtatással, látványtervvel és gyors GLS szállítással."
+    />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+  </head>
+  <body>
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <!-- @include: ./template-parts/layout/header.html -->
+    <header class="site-header" id="top">
+      <div class="container nav-wrap">
+        <a class="brand" href="#top" aria-label="DRWORK kezdőoldal">
+          <span class="brand-mark">DR</span>
+          <span class="brand-text">WORK</span>
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Menü megnyitása"
+          aria-expanded="false"
+          aria-controls="mainNav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="main-nav" id="mainNav">
+          <a href="#folyamat">Így dolgozunk</a>
+          <a href="#termekek">Termékek</a>
+          <a href="#markak">Márkák</a>
+          <a href="#kapcsolat">Kapcsolat</a>
+        </nav>
+
+        <a class="btn btn-outline hide-mobile" href="#kapcsolat"
+          >Ajánlatot kérek</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <!-- @include: ./template-parts/sections/hero.html -->
+      <section class="hero section">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">
+              Egyedi munkaruhák professzionális nyomtatással
+            </p>
+            <h1>
+              Egyedi<br />
+              munkaruhák.<br />
+              <span>Egyszerűen.</span>
+            </h1>
+            <p class="lead">
+              Te elmondod, mire van szükséged. Mi segítünk kiválasztani a
+              megfelelő terméket, elkészítjük a látványtervet, majd gyors
+              gyártással és GLS szállítással eljuttatjuk hozzád.
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#kapcsolat">Ajánlatot kérek</a>
+              <a class="btn btn-ghost" href="#folyamat">Segítséget kérek</a>
+            </div>
+            <div class="social-proof">
+              <div class="avatars" aria-label="Elégedett ügyfelek">
+                <span>AK</span><span>BM</span><span>GT</span><span>PK</span>
+              </div>
+              <div>
+                <p class="stars">★★★★★</p>
+                <p class="rating-text">100+ elégedett ügyfél</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <img
+              class="hero-bg-logo"
+              src="/assets/images/home/logo.v1.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <div class="shirt-stage">
+              <span class="shirt-shadow" aria-hidden="true"></span>
+              <img
+                class="hero-shirt"
+                src="/assets/images/home/Hero img.png"
+                alt="DRWORK munkapóló mockup"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="container feature-strip reveal">
+          <article>
+            <h3>Premium márkák</h3>
+            <p>a legjobb minőségért</p>
+          </article>
+          <article>
+            <h3>Látványterv előre</h3>
+            <p>100% biztonság</p>
+          </article>
+          <article>
+            <h3>Modern nyomtatás</h3>
+            <p>naprakész technológia</p>
+          </article>
+          <article>
+            <h3>Gyors gyártás</h3>
+            <p>GLS kiszállítással</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- @include: ./template-parts/layout/footer.html -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="#top">
+            <span class="brand-mark">DR</span>
+            <span class="brand-text">WORK</span>
+          </a>
+          <p>Egyedi munkaruhák, profin nyomtatva.</p>
+        </div>
+        <div>
+          <h3>Gyors linkek</h3>
+          <a href="#folyamat">Így dolgozunk</a>
+          <a href="#termekek">Termékek</a>
+          <a href="#markak">Márkák</a>
+        </div>
+        <div>
+          <h3>Kapcsolat</h3>
+          <p>+36 30 123 4567</p>
+          <p>info@drwork.hu</p>
+          <p>Budapest, Minta utca 1.</p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span id="year"></span> DRWORK. Minden jog fenntartva.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/assets/js/main.js"></script>
+  </body>
+</html>

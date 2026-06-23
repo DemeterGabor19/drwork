@@ -1,0 +1,82 @@
+.customization {
+  padding: 60px 0;
+  background-color: #000;
+  color: white;
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+}
+
+.customization__title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.customization__description {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.customization__features {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.customization__feature {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 15px;
+  padding-left: 25px;
+  position: relative;
+
+  &::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #e31e24;
+    font-weight: bold;
+  }
+}
+
+.customization__image {
+  position: relative;
+}
+
+.customization__shirt-preview {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.shirt-preview__item {
+  aspect-ratio: 1;
+  background-color: #222;
+  border-radius: 4px;
+  border: 1px solid #444;
+}
+
+.customization__image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .customization .container {
+    grid-template-columns: 1fr;
+  }
+
+  .customization__title {
+    font-size: 26px;
+  }
+}

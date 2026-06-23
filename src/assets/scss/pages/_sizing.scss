@@ -1,0 +1,50 @@
+.sizing {
+  padding: 60px 0;
+  background-color: white;
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+}
+
+.sizing__item {
+  padding: 30px;
+  background-color: #fafafa;
+  border-radius: 8px;
+}
+
+.sizing__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.sizing__text {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.sizing__image {
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .sizing .container {
+    grid-template-columns: 1fr;
+  }
+
+  .sizing__item {
+    padding: 20px;
+  }
+}
