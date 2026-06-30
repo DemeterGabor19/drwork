@@ -357,6 +357,45 @@ img {
   filter: drop-shadow(0 8px 10px rgba(10, 13, 22, 0.1));
 }
 
+.hero-note {
+  position: absolute;
+  z-index: 4;
+  right: -1.2rem;
+  bottom: 2.8rem;
+  width: 150px;
+  margin: 0;
+  color: #1a1d25;
+  font-family: "Segoe Print", "Bradley Hand ITC", cursive;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.25;
+  transform: rotate(-4deg);
+}
+
+.hero-note::before {
+  content: "";
+  position: absolute;
+  left: -3rem;
+  top: 0.35rem;
+  width: 2.3rem;
+  height: 1.1rem;
+  border-bottom: 1px solid rgba(26, 29, 37, 0.6);
+  border-left: 1px solid rgba(26, 29, 37, 0.6);
+  border-radius: 0 0 0 100%;
+  transform: rotate(18deg);
+}
+
+.hero-note::after {
+  content: "";
+  display: block;
+  width: 2.2rem;
+  height: 2px;
+  margin-top: 0.35rem;
+  margin-left: 1rem;
+  background: var(--brand);
+  border-radius: 999px;
+}
+
 .feature-strip {
   margin-top: 2.2rem;
   padding: 1.25rem 0;
@@ -1131,35 +1170,171 @@ img {
   text-align: center;
 }
 
+.support-section {
+  padding: 0;
+}
+
+.support-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.support-card {
+  min-height: 280px;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+
+.support-inner {
+  min-height: inherit;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(390px, 0.92fr) minmax(210px, 0.9fr);
+  gap: clamp(0.8rem, 1.6vw, 1.8rem);
+  align-items: center;
+  padding: clamp(1.8rem, 3vw, 2.7rem);
+}
+
+.support-card-size .support-inner {
+  margin-left: max(4vw, calc((100vw - 1240px) / 2));
+  padding-left: 0;
+}
+
+.support-card-delivery .support-inner {
+  margin-right: max(4vw, calc((100vw - 1240px) / 2));
+  grid-template-columns: minmax(380px, 0.82fr) minmax(290px, 1.12fr);
+}
+
+.support-card h2 {
+  margin: 0;
+  max-width: none;
+  font-family: "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 2.6vw, 2.85rem);
+  line-height: 1;
+}
+
+.title-line {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.support-card p:not(.eyebrow) {
+  margin: 1rem 0 1.6rem;
+  max-width: 360px;
+  color: #4f5766;
+}
+
+.support-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 210px;
+}
+
+.support-visual img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.size-visual::after {
+  content: "";
+  position: absolute;
+  right: -1.2rem;
+  top: 10%;
+  bottom: 10%;
+  border-left: 1px dashed rgba(238, 47, 61, 0.38);
+}
+
+.delivery-visual img {
+  max-width: 520px;
+  max-height: 300px;
+  transform: translateX(1.2rem);
+}
+
 .cta-band {
-  padding-top: 0;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  background:
+    radial-gradient(circle at 5% 50%, rgba(255, 255, 255, 0.05), transparent 24%),
+    linear-gradient(115deg, #07090e 0%, #111721 62%, #0b0e14 100%);
 }
 
 .cta-band-inner {
-  border-radius: 18px;
-  padding: 1.8rem;
+  min-height: 250px;
+  position: relative;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  background:
-    radial-gradient(circle at 15% 50%, rgba(238, 47, 61, 0.2), transparent 38%),
-    linear-gradient(115deg, #07090e 0%, #141a25 65%, #0c1019 100%);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  gap: 2rem;
+  padding: clamp(2.4rem, 5vw, 4.4rem) 0;
+}
+
+.cta-bg-logo {
+  position: absolute;
+  left: -12rem;
+  top: 50%;
+  width: 390px;
+  opacity: 0.08;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .cta-band-inner h2 {
   margin: 0;
   font-family: "Barlow Condensed", sans-serif;
   text-transform: uppercase;
-  font-size: clamp(2rem, 6vw, 3.6rem);
+  font-size: clamp(2.5rem, 5.4vw, 4.9rem);
+  line-height: 0.98;
+  color: #fff;
+}
+
+.cta-band-inner h2 span {
   color: var(--brand);
 }
 
 .cta-band-inner p {
-  margin: 0.55rem 0 0;
+  margin: 0.8rem 0 0;
   color: #dee2ed;
+}
+
+.cta-action {
+  position: relative;
+  min-width: 260px;
+  display: grid;
+  justify-items: start;
+  gap: 0.7rem;
+}
+
+.cta-action .btn {
+  min-width: 230px;
+}
+
+.cta-action p {
+  position: relative;
+  margin: 0 0 0 4.2rem;
+  color: #fff;
+  font-family: "Segoe Print", "Bradley Hand ITC", cursive;
+  font-size: 0.95rem;
+  transform: rotate(-3deg);
+}
+
+.cta-action p::before {
+  content: "";
+  position: absolute;
+  left: -3.3rem;
+  top: -0.2rem;
+  width: 2.6rem;
+  height: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.68);
+  border-left: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 0 0 0 100%;
+  transform: rotate(-12deg);
 }
 
 .site-footer {
@@ -1266,6 +1441,11 @@ img {
     transform: none;
   }
 
+  .hero-note {
+    right: 8%;
+    bottom: 2.4rem;
+  }
+
   .timeline {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 2rem;
@@ -1304,6 +1484,18 @@ img {
 
   .decision-card {
     min-height: 300px;
+  }
+
+  .support-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .support-card-size .support-inner,
+  .support-card-delivery .support-inner {
+    width: min(1240px, 92vw);
+    margin: 0 auto;
+    padding-left: clamp(2rem, 3.4vw, 3.2rem);
+    padding-right: clamp(2rem, 3.4vw, 3.2rem);
   }
 
   .brand-cards {
@@ -1376,6 +1568,11 @@ img {
     display: none;
   }
 
+  .support-card-size .support-inner,
+  .support-card-delivery .support-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(120px, 220px);
+  }
+
   .timeline {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 2rem;
@@ -1389,6 +1586,14 @@ img {
   .footer-grid {
     grid-template-columns: 1fr;
     display: grid;
+  }
+
+  .cta-band-inner {
+    justify-items: start;
+  }
+
+  .cta-action {
+    min-width: 0;
   }
 }
 
@@ -1409,6 +1614,10 @@ img {
 
   .lead {
     font-size: 15px;
+  }
+
+  .hero-note {
+    display: none;
   }
 
   .mockup-builder {
@@ -1468,6 +1677,27 @@ img {
 
   .price-formula {
     gap: 1rem;
+  }
+
+  .support-card-size .support-inner,
+  .support-card-delivery .support-inner {
+    width: min(1240px, 92vw);
+    grid-template-columns: 1fr;
+    padding: 2rem 0;
+  }
+
+  .title-line {
+    white-space: normal;
+  }
+
+  .support-visual {
+    min-height: 150px;
+    justify-self: end;
+    width: min(260px, 70vw);
+  }
+
+  .size-visual::after {
+    display: none;
   }
 
   .timeline,
