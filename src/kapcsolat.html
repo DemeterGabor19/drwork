@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="hu-HU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="lang" content="hu-HU" />
+    <title>Kapcsolat és ajánlatkérés | DRWORK</title>
+    <meta
+      name="description"
+      content="Kérj ajánlatot egyedi munkaruhára, logózásra vagy céges ruházatra. Írd meg az elképzelésed, és segítünk a megfelelő megoldásban."
+    />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+  </head>
+  <body>
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <header class="site-header" id="top">
+      <div class="container nav-wrap">
+        <a class="brand" href="/" aria-label="DRWORK kezdőoldal">
+          <img
+            class="brand-logo"
+            src="/assets/images/common/logo-fekete_Rajzt%C3%A1bla%201.svg"
+            alt="DRWORK"
+          />
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Menü megnyitása"
+          aria-expanded="false"
+          aria-controls="mainNav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="main-nav" id="mainNav">
+          <a href="/">Főoldal</a>
+          <a href="/technologiak.html">Technológiák</a>
+          <a href="/markak.html">Márkák</a>
+          <a href="/kapcsolat.html" aria-current="page">Kapcsolat</a>
+        </nav>
+
+        <div class="nav-actions">
+          <div class="social-links" aria-label="Közösségi média">
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M14.2 8.3V6.9c0-.7.5-1.1 1.2-1.1h1.4V3.3c-.7-.1-1.4-.2-2.1-.2-2.2 0-3.8 1.4-3.8 3.9v1.3H8.5V11h2.4v9.8h3.3V11h2.3l.4-2.7h-2.7Z"
+                />
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="4.5" />
+                <circle cx="12" cy="12" r="3.4" />
+                <circle cx="16.8" cy="7.2" r="0.9" />
+              </svg>
+            </a>
+          </div>
+
+          <details class="language-switcher">
+            <summary aria-label="Nyelvválasztás">HU</summary>
+            <div class="language-menu">
+              <a href="/kapcsolat.html" aria-current="true">Magyar</a>
+              <a href="/en/contact/">English</a>
+              <a href="/de/kontakt/">Deutsch</a>
+            </div>
+          </details>
+        </div>
+
+        <a class="btn btn-outline hide-mobile" href="#ajanlatkeres">
+          Ajánlatot kérek
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section page-hero contact-hero">
+        <div class="container contact-hero-grid">
+          <div class="page-hero-copy reveal">
+            <p class="eyebrow">Kapcsolat</p>
+            <h1>
+              Mondd el az<br />
+              elképzelésed.<br />
+              <span>Segítünk.</span>
+            </h1>
+            <p class="lead">
+              Írd meg, milyen munkaruhára, darabszámra és emblémázásra van
+              szükséged. Röviden átnézzük az igényeket, és segítünk a megfelelő
+              termék, márka és technológia kiválasztásában.
+            </p>
+          </div>
+
+          <aside class="contact-summary reveal" aria-label="Kapcsolati adatok">
+            <img
+              class="contact-summary-logo"
+              src="/assets/images/home/logo.v1.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <div class="contact-summary-item">
+              <span>Email</span>
+              <a href="mailto:info@drwork.hu">info@drwork.hu</a>
+            </div>
+            <div class="contact-summary-item">
+              <span>Telefon</span>
+              <a href="tel:+36301234567">+36 30 123 4567</a>
+            </div>
+            <div class="contact-summary-item">
+              <span>Cím</span>
+              <p>Budapest, Minta utca 1.</p>
+            </div>
+            <p class="contact-summary-note">
+              Írd meg az elképzelésed, mi pedig segítünk a következő lépésben.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="ajanlatkeres">
+        <div class="container contact-grid">
+          <div class="contact-form-card reveal">
+            <p class="eyebrow">Ajánlatkérés</p>
+            <h2 class="section-title">Írd meg, mire van szükséged</h2>
+            <form class="contact-form" action="#" method="post">
+              <div class="form-row">
+                <label>
+                  Név
+                  <input type="text" name="name" autocomplete="name" required />
+                </label>
+                <label>
+                  Cégnév
+                  <input type="text" name="company" autocomplete="organization" />
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  Email
+                  <input type="email" name="email" autocomplete="email" required />
+                </label>
+                <label>
+                  Telefonszám
+                  <input type="tel" name="phone" autocomplete="tel" />
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  Milyen ruhára van szükség?
+                  <select name="product">
+                    <option value="">Válassz típust</option>
+                    <option>Póló / galléros póló</option>
+                    <option>Pulóver / softshell</option>
+                    <option>Mellény / kabát</option>
+                    <option>Munkanadrág / munkaruha szett</option>
+                    <option>Még nem tudom pontosan</option>
+                  </select>
+                </label>
+                <label>
+                  Darabszám
+                  <input type="text" name="quantity" placeholder="pl. 25 db" />
+                </label>
+              </div>
+
+              <label>
+                Üzenet
+                <textarea
+                  name="message"
+                  rows="6"
+                  placeholder="Írd le röviden a projektet, a logó helyét, a határidőt vagy bármilyen fontos részletet."
+                  required
+                ></textarea>
+              </label>
+
+              <label class="form-consent">
+                <input type="checkbox" name="privacy" required />
+                <span>Elfogadom, hogy a DRWORK kapcsolatba lépjen velem az ajánlatkéréssel kapcsolatban.</span>
+              </label>
+
+              <button class="btn btn-primary" type="submit">
+                Ajánlatot kérek
+                <span aria-hidden="true">›</span>
+              </button>
+            </form>
+          </div>
+
+          <aside class="contact-help reveal">
+            <p class="eyebrow">Gyorsabb ajánlat</p>
+            <h2 class="section-title">Ezeket érdemes megírni</h2>
+            <div class="contact-help-list">
+              <article>
+                <img src="/assets/images/icons/ikon-6.png" alt="" />
+                <div>
+                  <h3>Termék típusa</h3>
+                  <p>Póló, pulóver, mellény, kabát vagy komplett munkaruha.</p>
+                </div>
+              </article>
+              <article>
+                <img src="/assets/images/icons/ikon-7.png" alt="" />
+                <div>
+                  <h3>Darabszám</h3>
+                  <p>Elég egy körülbelüli mennyiség, később pontosítjuk.</p>
+                </div>
+              </article>
+              <article>
+                <img src="/assets/images/icons/ikon-2.png" alt="" />
+                <div>
+                  <h3>Logó helye</h3>
+                  <p>Bal mellkas, hát, ujj vagy több elhelyezés egyszerre.</p>
+                </div>
+              </article>
+              <article>
+                <img src="/assets/images/icons/ikon-10.png" alt="" />
+                <div>
+                  <h3>Határidő</h3>
+                  <p>Írd meg, ha rendezvényhez vagy konkrét dátumhoz kell.</p>
+                </div>
+              </article>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="/">
+            <span class="brand-mark">DR</span>
+            <span class="brand-text">WORK</span>
+          </a>
+          <p>Egyedi munkaruhák, profin nyomtatva.</p>
+        </div>
+        <div>
+          <h3>Gyors linkek</h3>
+          <a href="/technologiak.html">Technológiák</a>
+          <a href="/markak.html">Márkák</a>
+          <a href="/kapcsolat.html">Kapcsolat</a>
+        </div>
+        <div>
+          <h3>Kapcsolat</h3>
+          <p>+36 30 123 4567</p>
+          <p>info@drwork.hu</p>
+          <p>Budapest, Minta utca 1.</p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span id="year"></span> DRWORK. Minden jog fenntartva.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/assets/js/main.js"></script>
+  </body>
+</html>
