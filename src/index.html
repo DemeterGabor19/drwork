@@ -47,14 +47,24 @@
 
         <div class="nav-actions">
           <div class="social-links" aria-label="Közösségi média">
-            <a href="#" aria-label="Facebook">
+            <a
+              href="https://www.facebook.com/profile.php?id=61584855237404"
+              aria-label="Facebook"
+              target="_blank"
+              rel="noopener"
+            >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   d="M14.2 8.3V6.9c0-.7.5-1.1 1.2-1.1h1.4V3.3c-.7-.1-1.4-.2-2.1-.2-2.2 0-3.8 1.4-3.8 3.9v1.3H8.5V11h2.4v9.8h3.3V11h2.3l.4-2.7h-2.7Z"
                 />
               </svg>
             </a>
-            <a href="#" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/drwork_wear/"
+              aria-label="Instagram"
+              target="_blank"
+              rel="noopener"
+            >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <rect x="4" y="4" width="16" height="16" rx="4.5" />
                 <circle cx="12" cy="12" r="3.4" />
@@ -98,7 +108,7 @@
               gyártással és GLS szállítással eljuttatjuk hozzád.
             </p>
             <div class="hero-cta">
-              <a class="btn btn-primary" href="#kapcsolat">
+              <a class="btn btn-primary" href="/kapcsolat.html#ajanlatkeres">
                 Ajánlatot kérek
               </a>
               <a class="btn btn-ghost" href="#folyamat">Segítséget kérek</a>
@@ -268,7 +278,7 @@
               <li>Színek és termékek összevetése</li>
               <li>Gyors módosítási körök</li>
             </ul>
-            <a class="btn btn-outline-light" href="#kapcsolat">
+            <a class="btn btn-outline-light" href="/kapcsolat.html#ajanlatkeres">
               Tudj meg többet
             </a>
           </div>
@@ -282,7 +292,7 @@
               <div class="mockup-control">
                 <span class="control-label">1. Termék</span>
                 <button class="select-control" type="button" data-product-label>
-                  Póló
+                  Férfi póló
                   <span aria-hidden="true">›</span>
                 </button>
               </div>
@@ -297,13 +307,13 @@
                     aria-label="Fehér"
                   ></button>
                   <button
-                    class="swatch swatch-gray"
+                    class="swatch swatch-gray is-active"
                     type="button"
                     data-color="gray"
                     aria-label="Szürke"
                   ></button>
                   <button
-                    class="swatch swatch-black is-active"
+                    class="swatch swatch-black"
                     type="button"
                     data-color="black"
                     aria-label="Fekete"
@@ -330,33 +340,12 @@
                     Elöl
                   </button>
                   <button type="button" data-view="back">Hátul</button>
+                  <button type="button" data-view="side">Oldal</button>
                 </div>
               </div>
 
               <div class="mockup-control">
-                <span class="control-label">4. Logó elhelyezése</span>
-                <div class="placement-list">
-                  <button
-                    class="is-active"
-                    type="button"
-                    data-placement="leftChest"
-                  >
-                    Bal mellkas
-                  </button>
-                  <button type="button" data-placement="rightChest">
-                    Jobb mellkas
-                  </button>
-                  <button type="button" data-placement="center">
-                    Közép
-                  </button>
-                  <button type="button" data-placement="backCenter">
-                    Hát
-                  </button>
-                </div>
-              </div>
-
-              <div class="mockup-control">
-                <span class="control-label">5. Logó</span>
+                <span class="control-label">4. Logó</span>
                 <div class="logo-preview">
                   <img src="/assets/images/common/logo.png" alt="DRWORK logó" />
                 </div>
@@ -364,46 +353,60 @@
             </aside>
 
             <div class="mockup-stage">
-              <img
-                class="mockup-shirt"
-                data-mockup-image
-                src="/assets/images/cloths/fekete%20p%C3%B3l%C3%B3%20eleje.png"
-                alt="Fekete póló látványterv"
-                loading="lazy"
-              />
-              <img
-                class="mockup-logo-layer"
-                data-mockup-logo
-                src="/assets/images/common/logo.png"
-                alt=""
-                aria-hidden="true"
-              />
+              <div class="mockup-canvas">
+                <img
+                  class="mockup-shirt"
+                  data-mockup-image
+                  src="/assets/images/cloths/F%C3%A9rfi%20p%C3%B3l%C3%B3/f%C3%A9rfi-sz%C3%BCrke-eleje.png"
+                  alt="Szürke férfi póló látványterv"
+                  loading="lazy"
+                />
+                <img
+                  class="mockup-logo-layer"
+                  data-mockup-logo
+                  src="/assets/images/common/logo.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </div>
             </div>
 
             <div class="mockup-thumbs" aria-label="Termékválasztó">
               <button
                 class="thumb is-active"
                 type="button"
-                data-product="tshirt"
-                data-default-color="black"
+                data-product="maleTshirt"
               >
                 <img
-                  src="/assets/images/cloths/fekete%20p%C3%B3l%C3%B3%20eleje.png"
-                  alt="Póló"
+                  src="/assets/images/cloths/F%C3%A9rfi%20p%C3%B3l%C3%B3/f%C3%A9rfi-sz%C3%BCrke-eleje.png"
+                  alt="Férfi póló"
                 />
-                <span>Póló</span>
+                <span>Férfi póló</span>
               </button>
               <button
                 class="thumb"
                 type="button"
-                data-product="polo"
-                data-default-color="white"
+                data-product="malePolo"
               >
                 <img
-                  src="/assets/images/cloths/feh%C3%A9r%20gall%C3%A9ros%20p%C3%B3l%C3%B3%20eleje.png"
-                  alt="Galléros póló"
+                  src="/assets/images/cloths/F%C3%A9rfi%20gall%C3%A9ros%20p%C3%B3l%C3%B3/f%C3%A9rfi-gall%C3%A9ros-sz%C3%BCrke-eleje.png"
+                  alt="Férfi galléros póló"
                 />
-                <span>Galléros póló</span>
+                <span>Férfi galléros póló</span>
+              </button>
+              <button class="thumb" type="button" data-product="femaleTshirt">
+                <img
+                  src="/assets/images/cloths/N%C5%91i%20p%C3%B3l%C3%B3/n%C5%91i-p%C3%B3l%C3%B3-sz%C3%BCrke-eleje.png"
+                  alt="Női póló"
+                />
+                <span>Női póló</span>
+              </button>
+              <button class="thumb" type="button" data-product="femalePolo">
+                <img
+                  src="/assets/images/cloths/N%C5%91i%20gall%C3%A9ros%20p%C3%B3l%C3%B3/n%C5%91i-gall%C3%A9ros-sz%C3%BCrke-eleje.png"
+                  alt="Női galléros póló"
+                />
+                <span>Női galléros póló</span>
               </button>
             </div>
           </div>
@@ -423,7 +426,7 @@
               Több ismert márkával dolgozunk együtt, hogy mindig a legjobb
               megoldást tudjuk ajánlani számodra.
             </p>
-            <a class="btn btn-ghost" href="#kapcsolat">
+            <a class="btn btn-ghost" href="/markak.html#markak-lista">
               Márkák összehasonlítása
               <span aria-hidden="true">›</span>
             </a>
@@ -438,7 +441,7 @@
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Kiváló ár-érték arány, széles termékválaszték.</p>
                 <small>Ajánlott termékek: pólók, pulóverek, mellények</small>
-                <a href="#kapcsolat">Részletek <span aria-hidden="true">›</span></a>
+                <a href="/markak.html#markak-lista">Részletek <span aria-hidden="true">›</span></a>
               </article>
 
               <article class="brand-card brand-snickers" data-brand-card>
@@ -448,7 +451,7 @@
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Prémium munkaruhák extrém körülményekhez.</p>
                 <small>Ajánlott termékek: munkanadrágok, kabátok</small>
-                <a href="#kapcsolat">Részletek <span aria-hidden="true">›</span></a>
+                <a href="/markak.html#markak-lista">Részletek <span aria-hidden="true">›</span></a>
               </article>
 
               <article class="brand-card brand-craft" data-brand-card>
@@ -458,7 +461,7 @@
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Funkcionális ruházat aktív munkavégzéshez.</p>
                 <small>Ajánlott termékek: pólók, aláöltözetek</small>
-                <a href="#kapcsolat">Részletek <span aria-hidden="true">›</span></a>
+                <a href="/markak.html#markak-lista">Részletek <span aria-hidden="true">›</span></a>
               </article>
 
               <article class="brand-card brand-cerva" data-brand-card>
@@ -468,7 +471,7 @@
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Erős, munkára tervezett ruházat ipari felhasználásra.</p>
                 <small>Ajánlott termékek: kabátok, nadrágok, láthatósági ruházat</small>
-                <a href="#kapcsolat">Részletek <span aria-hidden="true">›</span></a>
+                <a href="/markak.html#markak-lista">Részletek <span aria-hidden="true">›</span></a>
               </article>
 
               <article class="brand-card brand-gildan" data-brand-card>
@@ -478,7 +481,7 @@
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Letisztult alapdarabok nagyobb mennyiségű rendeléshez.</p>
                 <small>Ajánlott termékek: pólók, kapucnis pulóverek</small>
-                <a href="#kapcsolat">Részletek <span aria-hidden="true">›</span></a>
+                <a href="/markak.html#markak-lista">Részletek <span aria-hidden="true">›</span></a>
               </article>
 
               <article class="brand-card brand-kariban" data-brand-card>
@@ -488,7 +491,7 @@
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Elegánsabb céges megjelenéshez jó szabások és színek.</p>
                 <small>Ajánlott termékek: galléros pólók, ingek, softshellek</small>
-                <a href="#kapcsolat">Részletek <span aria-hidden="true">›</span></a>
+                <a href="/markak.html#markak-lista">Részletek <span aria-hidden="true">›</span></a>
               </article>
 
               <article class="brand-card brand-rimeck" data-brand-card>
@@ -498,7 +501,7 @@
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Tartós munkaruházat napi használatra, jó ár-érték aránnyal.</p>
                 <small>Ajánlott termékek: munkapólók, pulóverek, mellények</small>
-                <a href="#kapcsolat">Részletek <span aria-hidden="true">›</span></a>
+                <a href="/markak.html#markak-lista">Részletek <span aria-hidden="true">›</span></a>
               </article>
 
               <article class="brand-card brand-sols" data-brand-card>
@@ -508,7 +511,7 @@
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Sokoldalú promóciós és céges textil széles színválasztékkal.</p>
                 <small>Ajánlott termékek: pólók, pulóverek, sportos felsők</small>
-                <a href="#kapcsolat">Részletek <span aria-hidden="true">›</span></a>
+                <a href="/markak.html#markak-lista">Részletek <span aria-hidden="true">›</span></a>
               </article>
             </div>
 
@@ -547,7 +550,7 @@
                 Minden projekt más. Más logó, más elhelyezés, más darabszám,
                 más igények. Mi nem terméket árulunk, mi megoldást készítünk.
               </p>
-              <a class="btn btn-outline-light" href="#kapcsolat">
+              <a class="btn btn-outline-light" href="/kapcsolat.html#ajanlatkeres">
                 Tudj meg többet
               </a>
             </div>
@@ -596,7 +599,7 @@
                 <span>Egyedi ajánlat</span>
               </div>
             </div>
-            <a class="btn btn-ghost" href="#kapcsolat">Tudj meg többet</a>
+            <a class="btn btn-ghost" href="/kapcsolat.html#ajanlatkeres">Tudj meg többet</a>
             </div>
           </article>
         </div>
@@ -616,7 +619,7 @@
                   Minden termékhez hivatalos mérettáblázatot biztosítunk, és
                   segítünk megtalálni a tökéletes méretet.
                 </p>
-                <a class="btn btn-ghost" href="#kapcsolat">
+                <a class="btn btn-ghost" href="/kapcsolat.html#ajanlatkeres">
                   Mérettáblázatok
                   <span aria-hidden="true">›</span>
                 </a>
@@ -639,7 +642,7 @@
                   A kész munkaruhát gyorsan és biztonságosan kiszállítjuk a
                   kívánt címre.
                 </p>
-                <a class="btn btn-ghost" href="#kapcsolat">
+                <a class="btn btn-ghost" href="/kapcsolat.html#ajanlatkeres">
                   Szállítási információk
                   <span aria-hidden="true">›</span>
                 </a>
@@ -673,7 +676,7 @@
             </p>
           </div>
           <div class="cta-action">
-            <a class="btn btn-primary" href="mailto:info@drwork.hu">
+            <a class="btn btn-primary" href="/kapcsolat.html#ajanlatkeres">
               Ajánlatot kérek
               <span aria-hidden="true">›</span>
             </a>
@@ -701,9 +704,9 @@
         </div>
         <div>
           <h3>Kapcsolat</h3>
-          <p>+36 30 123 4567</p>
-          <p>info@drwork.hu</p>
-          <p>Budapest, Minta utca 1.</p>
+          <p>+36704515370</p>
+          <p>iroda@munkaruhas.hu</p>
+          <p>6400 Kiskunhalas, Kéve utca 26.</p>
         </div>
       </div>
       <div class="container footer-bottom">
