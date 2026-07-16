@@ -1,5 +1,46 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
+build/
+dist-codex-build/
+
+# Logs and debug output
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment and local config
+.env
+.env.*
+!.env.example
+.agents/
+.codex/
+.vscode/
+.idea/
+
+# OS generated files
 .DS_Store
 Thumbs.db
-*.log
+desktop.ini
+
+# Archives / packaged exports
+*.zip
+*.tar
+*.tar.gz
+
+# Unused downloaded font families
+src/assets/fonts/Inter/
+src/assets/fonts/Manrope/
+
+# Unused Barlow Condensed weights/styles
+src/assets/fonts/Barlow_Condensed/*Italic.ttf
+src/assets/fonts/Barlow_Condensed/BarlowCondensed-Black.ttf
+src/assets/fonts/Barlow_Condensed/BarlowCondensed-ExtraLight.ttf
+src/assets/fonts/Barlow_Condensed/BarlowCondensed-Light.ttf
+src/assets/fonts/Barlow_Condensed/BarlowCondensed-Regular.ttf
+src/assets/fonts/Barlow_Condensed/BarlowCondensed-SemiBold.ttf
+src/assets/fonts/Barlow_Condensed/BarlowCondensed-Thin.ttf

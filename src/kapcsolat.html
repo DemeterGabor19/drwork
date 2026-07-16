@@ -5,10 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="lang" content="hu-HU" />
-    <title>Kapcsolat és ajánlatkérés | DRWORK</title>
+    <title>Munkaruha ajánlatkérés és kapcsolat | Dr.Work</title>
     <meta
       name="description"
       content="Kérj ajánlatot egyedi munkaruhára, logózásra vagy céges ruházatra. Írd meg az elképzelésed, és segítünk a megfelelő megoldásban."
+    />
+
+    <link
+      rel="preload"
+      href="/assets/fonts/Bebas_Neue/BebasNeue-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
     />
     <link rel="stylesheet" href="/assets/css/main.css" />
   </head>
@@ -17,11 +25,11 @@
 
     <header class="site-header" id="top">
       <div class="container nav-wrap">
-        <a class="brand" href="/" aria-label="DRWORK kezdőoldal">
+        <a class="brand" href="/" aria-label="Dr.Work kezdőoldal">
           <img
             class="brand-logo"
             src="/assets/images/common/logo-fekete_Rajzt%C3%A1bla%201.svg"
-            alt="DRWORK"
+            alt="Dr.Work"
           />
         </a>
 
@@ -47,7 +55,7 @@
         <div class="nav-actions">
           <div class="social-links" aria-label="Közösségi média">
             <a
-              href="https://www.facebook.com/profile.php?id=61584855237404"
+              href="https://www.facebook.com/dr.work"
               aria-label="Facebook"
               target="_blank"
               rel="noopener"
@@ -91,7 +99,7 @@
     <main>
       <section class="section page-hero contact-hero">
         <div class="container contact-hero-grid">
-          <div class="page-hero-copy reveal">
+          <div class="page-hero-copy">
             <p class="eyebrow">Kapcsolat</p>
             <h1>
               Mondd el az<br />
@@ -114,7 +122,7 @@
             />
             <div class="contact-summary-item">
               <span>Email</span>
-              <a href="mailto:iroda@munkaruhas.hu">iroda@munkaruhas.hu</a>
+              <a href="mailto:iroda@drwork.hu">iroda@drwork.hu</a>
             </div>
             <div class="contact-summary-item">
               <span>Telefon</span>
@@ -189,7 +197,12 @@
 
               <label class="form-consent">
                 <input type="checkbox" name="privacy" required />
-                <span>Elfogadom, hogy a DRWORK kapcsolatba lépjen velem az ajánlatkéréssel kapcsolatban.</span>
+                <span>
+                  Elolvastam és elfogadom az
+                  <a href="/adatkezeles.html" target="_blank" rel="noopener">
+                    adatkezelési tájékoztatót
+                  </a>, és hozzájárulok, hogy a Dr.Work kapcsolatba lépjen velem az ajánlatkéréssel kapcsolatban.
+                </span>
               </label>
 
               <button class="btn btn-primary" type="submit">
@@ -241,8 +254,11 @@
       <div class="container footer-grid">
         <div>
           <a class="brand footer-brand" href="/">
-            <span class="brand-mark">DR</span>
-            <span class="brand-text">WORK</span>
+            <img
+              class="brand-logo"
+              src="/assets/images/common/logo.png"
+              alt="Dr.Work"
+            />
           </a>
           <p>Egyedi munkaruhák, profin nyomtatva.</p>
         </div>
@@ -254,13 +270,18 @@
         </div>
         <div>
           <h3>Kapcsolat</h3>
-          <p>+36704515370</p>
-          <p>iroda@munkaruhas.hu</p>
+          <a href="tel:+36704515370">+36704515370</a>
+          <a href="mailto:iroda@drwork.hu">iroda@drwork.hu</a>
           <p>6400 Kiskunhalas, Kéve utca 26.</p>
         </div>
       </div>
       <div class="container footer-bottom">
-        <p>© <span id="year"></span> DRWORK. Minden jog fenntartva.</p>
+        <p>© <span id="year"></span> Dr.Work. Minden jog fenntartva.</p>
+        <div class="footer-legal-links">
+          <a href="/adatkezeles.html">Adatkezelés</a>
+          <a href="/impresszum.html">Impresszum</a>
+          <a href="/cookie.html">Cookie tájékoztató</a>
+        </div>
       </div>
     </footer>
 

@@ -308,6 +308,16 @@ const getLogoEffect = (color, view) => ({
   ...(view === "side" ? sideLogoEffect : {}),
 });
 
+const logoImages = {
+  default: "/assets/images/common/logo.png",
+  white: "/assets/images/common/logo-fekete_Rajzt%C3%A1bla%201.svg",
+  red: "/assets/images/logo/logo%20pirosra-03.png",
+};
+
+const getLogoImagePath = (color) => logoImages[color] || logoImages.default;
+
+const percentToNumber = (value) => parseFloat(value) / 100;
+
 const buildImagePath = (productKey, color, view) => {
   const product = products[productKey];
   const fileName = `${product.filePrefix}-${colorFileNames[color]}-${viewLabels[view]}.png`;
@@ -341,6 +351,53 @@ export function initMockupBuilder() {
     });
   };
 
+  const getRenderedImageBox = () => {
+    const canvasBox = image.parentElement.getBoundingClientRect();
+
+    if (!image.naturalWidth || !image.naturalHeight) {
+      return {
+        left: 0,
+        top: 0,
+        width: canvasBox.width,
+        height: canvasBox.height,
+      };
+    }
+
+    const imageRatio = image.naturalWidth / image.naturalHeight;
+    const canvasRatio = canvasBox.width / canvasBox.height;
+
+    if (canvasRatio > imageRatio) {
+      const height = canvasBox.height;
+      const width = height * imageRatio;
+
+      return {
+        left: (canvasBox.width - width) / 2,
+        top: 0,
+        width,
+        height,
+      };
+    }
+
+    const width = canvasBox.width;
+    const height = width / imageRatio;
+
+    return {
+      left: 0,
+      top: (canvasBox.height - height) / 2,
+      width,
+      height,
+    };
+  };
+
+  const applyLogoLayout = () => {
+    const position = logoPositions[state.product][state.color][state.view];
+    const imageBox = getRenderedImageBox();
+
+    logo.style.left = `${imageBox.left + imageBox.width * percentToNumber(position.left)}px`;
+    logo.style.top = `${imageBox.top + imageBox.height * percentToNumber(position.top)}px`;
+    logo.style.width = `${imageBox.width * percentToNumber(position.width)}px`;
+  };
+
   const render = () => {
     const product = products[state.product];
     const position = logoPositions[state.product][state.color][state.view];
@@ -350,13 +407,12 @@ export function initMockupBuilder() {
     image.src = imagePath;
     image.alt = `${colorLabels[state.color]} ${product.label.toLowerCase()} látványterv`;
 
-    logo.style.top = position.top;
-    logo.style.left = position.left;
-    logo.style.width = position.width;
+    logo.src = getLogoImagePath(state.color);
     logo.style.transform = position.transform || "translate(-50%, -50%)";
     logo.style.opacity = effect.opacity;
     logo.style.mixBlendMode = effect.mixBlendMode;
     logo.style.filter = effect.filter;
+    applyLogoLayout();
 
     productLabel.firstChild.textContent = product.label;
 
@@ -364,6 +420,9 @@ export function initMockupBuilder() {
     setActive(colorButtons, "color", state.color);
     setActive(viewButtons, "view", state.view);
   };
+
+  image.addEventListener("load", applyLogoLayout);
+  window.addEventListener("resize", applyLogoLayout);
 
   productButtons.forEach((button) => {
     button.addEventListener("click", () => {

@@ -5,10 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="lang" content="hu-HU" />
-    <title>DRWORK - Munkaruhák</title>
+    <title>Egyedi munkaruha nyomtatás és hímzés | Dr.Work</title>
     <meta
       name="description"
-      content="Egyedi munkaruhák professzionális nyomtatással, látványtervvel és gyors GLS szállítással."
+      content="Egyedi munkaruhák, céges pólók, hímzés és DTF/DTG nyomtatás látványtervvel, gyors gyártással és GLS szállítással."
+    />
+
+    <link
+      rel="preload"
+      href="/assets/fonts/Bebas_Neue/BebasNeue-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/images/home/Hero%20img.png"
+      as="image"
+      fetchpriority="high"
     />
     <link rel="stylesheet" href="/assets/css/main.css" />
   </head>
@@ -18,11 +32,11 @@
     <!-- @include: ./template-parts/layout/header.html -->
     <header class="site-header" id="top">
       <div class="container nav-wrap">
-        <a class="brand" href="#top" aria-label="DRWORK kezdőoldal">
+        <a class="brand" href="#top" aria-label="Dr.Work kezdőoldal">
           <img
             class="brand-logo"
             src="/assets/images/common/logo-fekete_Rajzt%C3%A1bla%201.svg"
-            alt="DRWORK"
+            alt="Dr.Work"
           />
         </a>
 
@@ -48,7 +62,7 @@
         <div class="nav-actions">
           <div class="social-links" aria-label="Közösségi média">
             <a
-              href="https://www.facebook.com/profile.php?id=61584855237404"
+              href="https://www.facebook.com/dr.work"
               aria-label="Facebook"
               target="_blank"
               rel="noopener"
@@ -93,9 +107,9 @@
       <!-- @include: ./template-parts/sections/hero.html -->
       <section class="hero section">
         <div class="container hero-grid">
-          <div class="hero-copy reveal">
+          <div class="hero-copy">
             <p class="eyebrow">
-              Egyedi munkaruhák professzionális nyomtatással
+              Egyedi munkaruha nyomtatás és hímzés
             </p>
             <h1>
               Egyedi<br />
@@ -103,9 +117,10 @@
               <span>Egyszerűen.</span>
             </h1>
             <p class="lead">
-              Te elmondod, mire van szükséged. Mi segítünk kiválasztani a
-              megfelelő terméket, elkészítjük a látványtervet, majd gyors
-              gyártással és GLS szállítással eljuttatjuk hozzád.
+              Te elmondod, milyen céges munkaruhára vagy logózott pólóra van
+              szükséged. Mi segítünk kiválasztani a megfelelő terméket,
+              elkészítjük a látványtervet, majd gyors gyártással és GLS
+              szállítással eljuttatjuk hozzád.
             </p>
             <div class="hero-cta">
               <a class="btn btn-primary" href="/kapcsolat.html#ajanlatkeres">
@@ -124,11 +139,16 @@
             </div>
           </div>
 
-          <div class="hero-visual reveal">
+          <div class="hero-visual">
             <img
               class="hero-bg-logo"
               src="/assets/images/home/logo.v1.png"
               alt=""
+              width="2048"
+              height="2048"
+              loading="lazy"
+              decoding="async"
+              fetchpriority="low"
               aria-hidden="true"
             />
             <div class="shirt-stage">
@@ -136,8 +156,12 @@
               <img
                 class="hero-shirt"
                 src="/assets/images/home/Hero img.png"
-                alt="Fekete DRWORK munkapóló"
+                alt="Fekete Dr.Work munkapóló"
+                width="2048"
+                height="2048"
                 loading="eager"
+                fetchpriority="high"
+                decoding="async"
               />
             </div>
             <p class="hero-note">Látványterv még a gyártás előtt</p>
@@ -149,16 +173,18 @@
             <img
               class="feature-icon"
               src="/assets/images/icons/ikon-1.png"
+              decoding="async"
               alt=""
               aria-hidden="true"
             />
-            <h3>Premium márkák</h3>
+            <h3>Prémium márkák</h3>
             <p>a legjobb minőségért</p>
           </article>
           <article>
             <img
               class="feature-icon"
               src="/assets/images/icons/ikon-2.png"
+              decoding="async"
               alt=""
               aria-hidden="true"
             />
@@ -169,16 +195,18 @@
             <img
               class="feature-icon"
               src="/assets/images/icons/ikon-3.png"
+              decoding="async"
               alt=""
               aria-hidden="true"
             />
-            <h3>Modern nyomtatás</h3>
+            <h3>DTF, DTG és hímzés</h3>
             <p>naprakész technológia</p>
           </article>
           <article>
             <img
               class="feature-icon"
               src="/assets/images/icons/ikon-4..png"
+              decoding="async"
               alt=""
               aria-hidden="true"
             />
@@ -228,7 +256,7 @@
               />
               <span class="step-no">03</span>
               <h3>Látványterv</h3>
-              <p>A gyártás előtt jóváhagyható design terv.</p>
+              <p>A gyártás előtt jóváhagyható látványterv.</p>
             </article>
             <article class="step reveal">
               <img
@@ -347,7 +375,7 @@
               <div class="mockup-control">
                 <span class="control-label">4. Logó</span>
                 <div class="logo-preview">
-                  <img src="/assets/images/common/logo.png" alt="DRWORK logó" />
+                  <img src="/assets/images/common/logo.png" alt="Dr.Work logó" />
                 </div>
               </div>
             </aside>
@@ -358,6 +386,8 @@
                   class="mockup-shirt"
                   data-mockup-image
                   src="/assets/images/cloths/F%C3%A9rfi%20p%C3%B3l%C3%B3/f%C3%A9rfi-sz%C3%BCrke-eleje.png"
+                  loading="lazy"
+                  decoding="async"
                   alt="Szürke férfi póló látványterv"
                   loading="lazy"
                 />
@@ -390,6 +420,8 @@
               >
                 <img
                   src="/assets/images/cloths/F%C3%A9rfi%20gall%C3%A9ros%20p%C3%B3l%C3%B3/f%C3%A9rfi-gall%C3%A9ros-sz%C3%BCrke-eleje.png"
+                  loading="lazy"
+                  decoding="async"
                   alt="Férfi galléros póló"
                 />
                 <span>Férfi galléros póló</span>
@@ -397,6 +429,8 @@
               <button class="thumb" type="button" data-product="femaleTshirt">
                 <img
                   src="/assets/images/cloths/N%C5%91i%20p%C3%B3l%C3%B3/n%C5%91i-p%C3%B3l%C3%B3-sz%C3%BCrke-eleje.png"
+                  loading="lazy"
+                  decoding="async"
                   alt="Női póló"
                 />
                 <span>Női póló</span>
@@ -404,6 +438,8 @@
               <button class="thumb" type="button" data-product="femalePolo">
                 <img
                   src="/assets/images/cloths/N%C5%91i%20gall%C3%A9ros%20p%C3%B3l%C3%B3/n%C5%91i-gall%C3%A9ros-sz%C3%BCrke-eleje.png"
+                  loading="lazy"
+                  decoding="async"
                   alt="Női galléros póló"
                 />
                 <span>Női galléros póló</span>
@@ -417,7 +453,7 @@
       <section class="section brands" id="markak">
         <div class="container brands-grid">
           <div class="brands-copy reveal">
-            <p class="eyebrow">Premium márkák</p>
+            <p class="eyebrow">Prémium márkák</p>
             <h2 class="section-title">
               A megfelelő márkát<br />
               a megfelelő feladathoz
@@ -436,7 +472,7 @@
             <div class="brand-cards">
               <article class="brand-card brand-malfini" data-brand-card>
                 <div class="brand-logo-box">
-                  <img src="/assets/images/logo/malfini.png" alt="Malfini" />
+                  <img src="/assets/images/logo/malfini.png" alt="Malfini" loading="lazy" decoding="async" />
                 </div>
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Kiváló ár-érték arány, széles termékválaszték.</p>
@@ -446,7 +482,7 @@
 
               <article class="brand-card brand-snickers" data-brand-card>
                 <div class="brand-logo-box brand-logo-box-dark">
-                  <img src="/assets/images/logo/snickers.png" alt="Snickers" />
+                  <img src="/assets/images/logo/snickers.png" alt="Snickers" loading="lazy" decoding="async" />
                 </div>
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Prémium munkaruhák extrém körülményekhez.</p>
@@ -456,7 +492,7 @@
 
               <article class="brand-card brand-craft" data-brand-card>
                 <div class="brand-logo-box">
-                  <img src="/assets/images/logo/craft.png" alt="Craft" />
+                  <img src="/assets/images/logo/craft.png" alt="Craft" loading="lazy" decoding="async" />
                 </div>
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Funkcionális ruházat aktív munkavégzéshez.</p>
@@ -466,7 +502,7 @@
 
               <article class="brand-card brand-cerva" data-brand-card>
                 <div class="brand-logo-box">
-                  <img src="/assets/images/logo/cerva.png" alt="Cerva" />
+                  <img src="/assets/images/logo/cerva.png" alt="Cerva" loading="lazy" decoding="async" />
                 </div>
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Erős, munkára tervezett ruházat ipari felhasználásra.</p>
@@ -476,7 +512,7 @@
 
               <article class="brand-card brand-gildan" data-brand-card>
                 <div class="brand-logo-box">
-                  <img src="/assets/images/logo/gildan.png" alt="Gildan" />
+                  <img src="/assets/images/logo/gildan.png" alt="Gildan" loading="lazy" decoding="async" />
                 </div>
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Letisztult alapdarabok nagyobb mennyiségű rendeléshez.</p>
@@ -486,7 +522,7 @@
 
               <article class="brand-card brand-kariban" data-brand-card>
                 <div class="brand-logo-box">
-                  <img src="/assets/images/logo/kariban.png" alt="Kariban" />
+                  <img src="/assets/images/logo/kariban.png" alt="Kariban" loading="lazy" decoding="async" />
                 </div>
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Elegánsabb céges megjelenéshez jó szabások és színek.</p>
@@ -496,7 +532,7 @@
 
               <article class="brand-card brand-rimeck" data-brand-card>
                 <div class="brand-logo-box">
-                  <img src="/assets/images/logo/rimeck.png" alt="Rimeck" />
+                  <img src="/assets/images/logo/rimeck.png" alt="Rimeck" loading="lazy" decoding="async" />
                 </div>
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Tartós munkaruházat napi használatra, jó ár-érték aránnyal.</p>
@@ -506,7 +542,7 @@
 
               <article class="brand-card brand-sols" data-brand-card>
                 <div class="brand-logo-box">
-                  <img src="/assets/images/logo/sol%27s.webp" alt="Sol's" />
+                  <img src="/assets/images/logo/sol%27s.webp" alt="Sol's" loading="lazy" decoding="async" />
                 </div>
                 <p class="brand-rating" aria-label="5 csillag">*****</p>
                 <p>Sokoldalú promóciós és céges textil széles színválasztékkal.</p>
@@ -558,6 +594,8 @@
               <img
                 src="/assets/images/icons/kosar-x-icon.png"
                 alt=""
+                loading="lazy"
+                decoding="async"
                 aria-hidden="true"
               />
             </div>
@@ -568,34 +606,37 @@
             <div class="decision-inner">
             <p class="eyebrow">Miért nincs árlista?</p>
             <h2>Mert sok minden befolyásolja az árat.</h2>
+            <p class="price-intro">
+              Minden céges ruházat és logózott munkaruha egyedi ajánlat alapján készül.
+            </p>
             <div class="price-formula" aria-label="Árképzési tényezők">
               <div class="price-factor">
-                <img src="/assets/images/icons/ikon-6.png" alt="" />
+                <img src="/assets/images/icons/ikon-6.png" alt="" loading="lazy" decoding="async" />
                 <span>Termék</span>
               </div>
               <span class="formula-symbol">+</span>
               <div class="price-factor">
-                <img src="/assets/images/icons/ikon-8.png" alt="" />
+                <img src="/assets/images/icons/ikon-8.png" alt="" loading="lazy" decoding="async" />
                 <span>Márka</span>
               </div>
               <span class="formula-symbol">+</span>
               <div class="price-factor">
-                <img src="/assets/images/icons/ikon-7.png" alt="" />
+                <img src="/assets/images/icons/ikon-7.png" alt="" loading="lazy" decoding="async" />
                 <span>Darabszám</span>
               </div>
               <span class="formula-symbol">+</span>
               <div class="price-factor">
-                <img src="/assets/images/icons/ikon-10.png" alt="" />
+                <img src="/assets/images/icons/ikon-10.png" alt="" loading="lazy" decoding="async" />
                 <span>Nyomat</span>
               </div>
               <span class="formula-symbol">+</span>
               <div class="price-factor">
-                <img src="/assets/images/icons/ikon-11.png" alt="" />
+                <img src="/assets/images/icons/ikon-11.png" alt="" loading="lazy" decoding="async" />
                 <span>Technológia</span>
               </div>
               <span class="formula-symbol">=</span>
               <div class="price-factor price-factor-result">
-                <img src="/assets/images/icons/ikon-12.png" alt="" />
+                <img src="/assets/images/icons/ikon-12.png" alt="" loading="lazy" decoding="async" />
                 <span>Egyedi ajánlat</span>
               </div>
             </div>
@@ -619,13 +660,18 @@
                   Minden termékhez hivatalos mérettáblázatot biztosítunk, és
                   segítünk megtalálni a tökéletes méretet.
                 </p>
-                <a class="btn btn-ghost" href="/kapcsolat.html#ajanlatkeres">
+                <!-- <a class="btn btn-ghost" href="/kapcsolat.html#ajanlatkeres">
                   Mérettáblázatok
                   <span aria-hidden="true">›</span>
-                </a>
+                </a> -->
               </div>
               <div class="support-visual size-visual" aria-hidden="true">
-                <img src="/assets/images/icons/m%C3%A9ret.png" alt="" />
+                <img
+                  src="/assets/images/icons/m%C3%A9ret.png"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </article>
@@ -642,13 +688,18 @@
                   A kész munkaruhát gyorsan és biztonságosan kiszállítjuk a
                   kívánt címre.
                 </p>
-                <a class="btn btn-ghost" href="/kapcsolat.html#ajanlatkeres">
+                <!-- <a class="btn btn-ghost" href="/kapcsolat.html#ajanlatkeres">
                   Szállítási információk
                   <span aria-hidden="true">›</span>
-                </a>
+                </a> -->
               </div>
               <div class="support-visual delivery-visual" aria-hidden="true">
-                <img src="/assets/images/icons/GLS.png" alt="" />
+                <img
+                  src="/assets/images/icons/GLS.png"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </article>
@@ -662,6 +713,10 @@
             class="cta-bg-logo"
             src="/assets/images/home/logo.v1.png"
             alt=""
+            width="2048"
+            height="2048"
+            loading="lazy"
+            decoding="async"
             aria-hidden="true"
           />
           <div>
@@ -691,8 +746,11 @@
       <div class="container footer-grid">
         <div>
           <a class="brand footer-brand" href="/">
-            <span class="brand-mark">DR</span>
-            <span class="brand-text">WORK</span>
+            <img
+              class="brand-logo"
+              src="/assets/images/common/logo.png"
+              alt="Dr.Work"
+            />
           </a>
           <p>Egyedi munkaruhák, profin nyomtatva.</p>
         </div>
@@ -704,13 +762,18 @@
         </div>
         <div>
           <h3>Kapcsolat</h3>
-          <p>+36704515370</p>
-          <p>iroda@munkaruhas.hu</p>
+          <a href="tel:+36704515370">+36704515370</a>
+          <a href="mailto:iroda@drwork.hu">iroda@drwork.hu</a>
           <p>6400 Kiskunhalas, Kéve utca 26.</p>
         </div>
       </div>
       <div class="container footer-bottom">
-        <p>© <span id="year"></span> DRWORK. Minden jog fenntartva.</p>
+        <p>© <span id="year"></span> Dr.Work. Minden jog fenntartva.</p>
+        <div class="footer-legal-links">
+          <a href="/adatkezeles.html">Adatkezelés</a>
+          <a href="/impresszum.html">Impresszum</a>
+          <a href="/cookie.html">Cookie tájékoztató</a>
+        </div>
       </div>
     </footer>
 
