@@ -5,6 +5,10 @@ node_modules/
 dist/
 build/
 dist-codex-build/
+.cache/
+.parcel-cache/
+.vite/
+coverage/
 
 # Logs and debug output
 *.log
@@ -17,6 +21,8 @@ pnpm-debug.log*
 .env
 .env.*
 !.env.example
+.env.local
+.env.*.local
 .agents/
 .codex/
 .vscode/
@@ -31,6 +37,16 @@ desktop.ini
 *.zip
 *.tar
 *.tar.gz
+*.rar
+*.7z
+
+# Temporary / backup files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+~$*
 
 # Unused downloaded font families
 src/assets/fonts/Inter/
