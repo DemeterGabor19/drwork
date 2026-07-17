@@ -50,6 +50,25 @@ function drwork_acf_image_field_name(string $page_slug, string $asset_path): str
     return 'image_' . str_replace('-', '_', $field);
 }
 
+function drwork_image_should_stay_theme_asset(string $image_prefix, string $asset_path): bool
+{
+    $decoded_path = urldecode($asset_path);
+
+    if (strpos($decoded_path, 'cloths/') === 0) {
+        return true;
+    }
+
+    if (strpos($image_prefix, 'data-mockup-') !== false || strpos($image_prefix, 'mockup-') !== false) {
+        return true;
+    }
+
+    if ($decoded_path === 'common/logo.png' && strpos($image_prefix, 'brand-logo') === false) {
+        return true;
+    }
+
+    return false;
+}
+
 function drwork_prepare_static_content(string $content, string $page_slug): string
 {
     $content = preg_replace_callback(
@@ -57,6 +76,11 @@ function drwork_prepare_static_content(string $content, string $page_slug): stri
         static function (array $matches) use ($page_slug): string {
             $asset_path = $matches[2];
             $fallback = drwork_asset_url('images/' . $asset_path);
+
+            if (drwork_image_should_stay_theme_asset($matches[1], $asset_path)) {
+                return $matches[1] . esc_url($fallback) . $matches[3];
+            }
+
             $field_name = drwork_acf_image_field_name($page_slug, $asset_path);
             $image_url = drwork_acf_image_url($field_name, $fallback);
 
@@ -156,6 +180,127 @@ function drwork_preload_assets(): void
     }
 }
 add_action('wp_head', 'drwork_preload_assets', 1);
+
+function drwork_seo_data(): array
+{
+    $default = [
+        'title' => 'Egyedi munkaruha nyomtatás és hímzés | Dr.Work',
+        'description' => 'Egyedi munkaruhák, céges pólók, hímzés és DTF/DTG nyomtatás látványtervvel, gyors gyártással és GLS szállítással.',
+        'path' => '/',
+        'robots' => 'index, follow',
+    ];
+
+    $pages = [
+        'technologiak' => [
+            'title' => 'Nyomtatási technológiák | DTF, DTG, hímzés | Dr.Work',
+            'description' => 'DTF és DTG nyomtatás, hímzés, nyakpánt, tarisznya és logótervezés egyedi céges munkaruhákhoz és promóciós termékekhez.',
+            'path' => '/technologiak/',
+            'robots' => 'index, follow',
+        ],
+        'markak' => [
+            'title' => 'Munkaruha márkák céges ruházathoz | Dr.Work',
+            'description' => 'Munkaruha márkák céges ruházathoz és logózott pólókhoz: Malfini, Snickers Workwear, Craft, Cerva, Gildan, Kariban, Rimeck és Sol\'s.',
+            'path' => '/markak/',
+            'robots' => 'index, follow',
+        ],
+        'kapcsolat' => [
+            'title' => 'Munkaruha ajánlatkérés és kapcsolat | Dr.Work',
+            'description' => 'Kérj ajánlatot egyedi munkaruhára, logózásra vagy céges ruházatra. Írd meg az elképzelésed, és segítünk a megfelelő megoldásban.',
+            'path' => '/kapcsolat/',
+            'robots' => 'index, follow',
+        ],
+        'adatkezeles' => [
+            'title' => 'Adatkezelési tájékoztató | Dr.Work',
+            'description' => 'A Dr.Work adatkezelési tájékoztatója kapcsolatfelvételhez, ajánlatkéréshez és weboldalhasználathoz.',
+            'path' => '/adatkezeles/',
+            'robots' => 'noindex, follow',
+        ],
+        'impresszum' => [
+            'title' => 'Impresszum | Dr.Work',
+            'description' => 'A Dr.Work weboldal impresszuma és üzemeltetői adatai.',
+            'path' => '/impresszum/',
+            'robots' => 'noindex, follow',
+        ],
+        'cookie' => [
+            'title' => 'Cookie tájékoztató | Dr.Work',
+            'description' => 'A Dr.Work weboldal cookie tájékoztatója.',
+            'path' => '/cookie/',
+            'robots' => 'noindex, follow',
+        ],
+    ];
+
+    if (is_404()) {
+        return [
+            'title' => '404 - Az oldal nem található | Dr.Work',
+            'description' => 'A keresett Dr.Work oldal nem található. Térj vissza a főoldalra, vagy kérj ajánlatot egyedi munkaruhára.',
+            'path' => '',
+            'robots' => 'noindex, follow',
+        ];
+    }
+
+    if (is_front_page() || is_page_template('page-home.php')) {
+        return $default;
+    }
+
+    foreach ($pages as $slug => $data) {
+        if (is_page($slug) || is_page_template('page-' . $slug . '.php')) {
+            return $data;
+        }
+    }
+
+    return $default;
+}
+
+function drwork_seo_plugin_is_active(): bool
+{
+    return defined('RANK_MATH_VERSION')
+        || defined('WPSEO_VERSION')
+        || defined('AIOSEO_VERSION')
+        || class_exists('RankMath');
+}
+
+function drwork_document_title_parts(array $title): array
+{
+    if (drwork_seo_plugin_is_active()) {
+        return $title;
+    }
+
+    $seo = drwork_seo_data();
+    $title['title'] = $seo['title'];
+    unset($title['site'], $title['tagline']);
+
+    return $title;
+}
+add_filter('document_title_parts', 'drwork_document_title_parts', 20);
+
+function drwork_fallback_seo_meta(): void
+{
+    if (drwork_seo_plugin_is_active()) {
+        return;
+    }
+
+    $seo = drwork_seo_data();
+    $canonical = $seo['path'] !== '' ? home_url($seo['path']) : '';
+
+    echo '<meta name="description" content="' . esc_attr($seo['description']) . '">' . "\n";
+    echo '<meta name="robots" content="' . esc_attr($seo['robots']) . '">' . "\n";
+
+    if ($canonical !== '') {
+        echo '<link rel="canonical" href="' . esc_url($canonical) . '">' . "\n";
+    }
+
+    echo '<meta property="og:locale" content="hu_HU">' . "\n";
+    echo '<meta property="og:type" content="website">' . "\n";
+    echo '<meta property="og:title" content="' . esc_attr($seo['title']) . '">' . "\n";
+    echo '<meta property="og:description" content="' . esc_attr($seo['description']) . '">' . "\n";
+
+    if ($canonical !== '') {
+        echo '<meta property="og:url" content="' . esc_url($canonical) . '">' . "\n";
+    }
+
+    echo '<meta property="og:site_name" content="Dr.Work">' . "\n";
+}
+add_action('wp_head', 'drwork_fallback_seo_meta', 5);
 
 function drwork_module_script_tag(string $tag, string $handle, string $src): string
 {
