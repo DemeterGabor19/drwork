@@ -47,6 +47,9 @@ desktop.ini
 *.backup
 *.swp
 ~$*
+tmp-*/
+tmp*/
+tmp-chrome-profile*/
 
 # Unused downloaded font families
 src/assets/fonts/Inter/

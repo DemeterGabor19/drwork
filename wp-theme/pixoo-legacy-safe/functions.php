@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('DRWORK_VERSION', '1.0.0');
+define('DRWORK_VERSION', '1.2.2');
 
 function drwork_setup(): void
 {
@@ -44,7 +44,18 @@ function drwork_acf_image_url(string $field_name, string $fallback_url): string
 
 function drwork_acf_image_field_name(string $page_slug, string $asset_path): string
 {
-    $path = preg_replace('/\.[a-z0-9]+$/i', '', urldecode($asset_path));
+    $decoded_path = urldecode($asset_path);
+    $explicit_fields = [
+        'home|icons/méret.png' => 'home_size_image',
+        'home|icons/GLS.png' => 'home_delivery_image',
+    ];
+    $explicit_key = $page_slug . '|' . $decoded_path;
+
+    if (isset($explicit_fields[$explicit_key])) {
+        return $explicit_fields[$explicit_key];
+    }
+
+    $path = preg_replace('/\.[a-z0-9]+$/i', '', $decoded_path);
     $field = sanitize_title($page_slug . '-' . $path);
 
     return 'image_' . str_replace('-', '_', $field);
@@ -90,13 +101,13 @@ function drwork_prepare_static_content(string $content, string $page_slug): stri
     );
 
     $page_links = [
-        '/index.html' => '/',
+        '/index.html' => '/fooldal/',
         '/technologiak.html' => '/technologiak/',
         '/markak.html' => '/markak/',
         '/kapcsolat.html' => '/kapcsolat/',
         '/adatkezeles.html' => '/adatkezeles/',
         '/impresszum.html' => '/impresszum/',
-        '/cookie.html' => '/cookie/',
+        '/cookie.html' => '/cookie-tajekoztato/',
     ];
 
     $content = preg_replace_callback(
@@ -112,7 +123,7 @@ function drwork_prepare_static_content(string $content, string $page_slug): stri
             }
 
             if ($href === '/') {
-                return 'href="' . esc_url(home_url('/')) . '"';
+                return 'href="' . esc_url(home_url('/fooldal/')) . '"';
             }
 
             return $matches[0];
@@ -186,7 +197,7 @@ function drwork_seo_data(): array
     $default = [
         'title' => 'Egyedi munkaruha nyomtatás és hímzés | Dr.Work',
         'description' => 'Egyedi munkaruhák, céges pólók, hímzés és DTF/DTG nyomtatás látványtervvel, gyors gyártással és GLS szállítással.',
-        'path' => '/',
+        'path' => '/fooldal/',
         'robots' => 'index, follow',
     ];
 
@@ -224,7 +235,7 @@ function drwork_seo_data(): array
         'cookie' => [
             'title' => 'Cookie tájékoztató | Dr.Work',
             'description' => 'A Dr.Work weboldal cookie tájékoztatója.',
-            'path' => '/cookie/',
+            'path' => '/cookie-tajekoztato/',
             'robots' => 'noindex, follow',
         ],
     ];
@@ -238,12 +249,14 @@ function drwork_seo_data(): array
         ];
     }
 
-    if (is_front_page() || is_page_template('page-home.php')) {
+    if (is_front_page() || is_page('fooldal') || is_page_template('page-home.php')) {
         return $default;
     }
 
     foreach ($pages as $slug => $data) {
-        if (is_page($slug) || is_page_template('page-' . $slug . '.php')) {
+        $page_slugs = $slug === 'cookie' ? ['cookie', 'cookie-tajekoztato'] : [$slug];
+
+        if (is_page($page_slugs) || is_page_template('page-' . $slug . '.php')) {
             return $data;
         }
     }

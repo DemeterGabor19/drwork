@@ -1,26 +1,26 @@
 const products = {
   maleTshirt: {
     label: "Férfi póló",
-    folder: "Férfi póló",
-    filePrefix: "férfi",
+    folder: "male-tshirt",
+    filePrefix: "male-tshirt",
     defaultColor: "gray",
   },
   malePolo: {
     label: "Férfi galléros póló",
-    folder: "Férfi galléros póló",
-    filePrefix: "férfi-galléros",
+    folder: "male-polo",
+    filePrefix: "male-polo",
     defaultColor: "gray",
   },
   femaleTshirt: {
     label: "Női póló",
-    folder: "Női póló",
-    filePrefix: "női-póló",
+    folder: "female-tshirt",
+    filePrefix: "female-tshirt",
     defaultColor: "gray",
   },
   femalePolo: {
     label: "Női galléros póló",
-    folder: "Női galléros póló",
-    filePrefix: "női-galléros",
+    folder: "female-polo",
+    filePrefix: "female-polo",
     defaultColor: "gray",
   },
 };
@@ -34,17 +34,17 @@ const colorLabels = {
 };
 
 const colorFileNames = {
-  black: "fekete",
-  white: "fehér",
-  gray: "szürke",
-  blue: "kék",
-  red: "piros",
+  black: "black",
+  white: "white",
+  gray: "gray",
+  blue: "blue",
+  red: "red",
 };
 
 const viewLabels = {
-  front: "eleje",
-  back: "háta",
-  side: "oldala",
+  front: "front",
+  back: "back",
+  side: "side",
 };
 
 const sideLogoTransform =
@@ -308,13 +308,15 @@ const getLogoEffect = (color, view) => ({
   ...(view === "side" ? sideLogoEffect : {}),
 });
 
-const assetBase = globalThis.drworkTheme?.assetsUrl || "/assets";
+const normalizeAssetBase = (base) => base.replace(/\/$/, "");
+const moduleAssetBase = normalizeAssetBase(new URL("../../", import.meta.url).href);
+const assetBase = normalizeAssetBase(globalThis.drworkTheme?.assetsUrl || moduleAssetBase);
 const assetUrl = (path) => `${assetBase}${path}`;
 
 const logoImages = {
   default: assetUrl("/images/common/logo.png"),
-  white: assetUrl("/images/common/logo-fekete_Rajzt%C3%A1bla%201.svg"),
-  red: assetUrl("/images/logo/logo%20pirosra-03.png"),
+  white: assetUrl("/images/common/logo-black.svg"),
+  red: assetUrl("/images/logo/logo-red-shirt.png"),
 };
 
 const getLogoImagePath = (color) => logoImages[color] || logoImages.default;

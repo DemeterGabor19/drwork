@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 
     <header class="site-header" id="top">
       <div class="container nav-wrap">
-        <a class="brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Dr.Work kezdőoldal', 'drwork'); ?>">
+        <a class="brand" href="<?php echo esc_url(home_url('/fooldal/')); ?>" aria-label="<?php esc_attr_e('Dr.Work kezdőoldal', 'drwork'); ?>">
           <img
             class="brand-logo"
             src="<?php echo esc_url(drwork_acf_image_url('site_header_logo', drwork_asset_url('images/common/logo-fekete_Rajzt%C3%A1bla%201.svg'))); ?>"
@@ -37,7 +37,7 @@ if (!defined('ABSPATH')) {
         </button>
 
         <nav class="main-nav" id="mainNav">
-          <a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Főoldal', 'drwork'); ?></a>
+          <a href="<?php echo esc_url(home_url('/fooldal/')); ?>"><?php esc_html_e('Főoldal', 'drwork'); ?></a>
           <a href="<?php echo esc_url(home_url('/technologiak/')); ?>"><?php esc_html_e('Technológiák', 'drwork'); ?></a>
           <a href="<?php echo esc_url(home_url('/markak/')); ?>"><?php esc_html_e('Márkák', 'drwork'); ?></a>
           <a href="<?php echo esc_url(home_url('/kapcsolat/')); ?>"><?php esc_html_e('Kapcsolat', 'drwork'); ?></a>
@@ -62,7 +62,7 @@ if (!defined('ABSPATH')) {
           <details class="language-switcher">
             <summary aria-label="<?php esc_attr_e('Nyelvválasztás', 'drwork'); ?>">HU</summary>
             <div class="language-menu">
-              <a href="<?php echo esc_url(home_url('/')); ?>" aria-current="true">Magyar</a>
+              <a href="<?php echo esc_url(home_url('/fooldal/')); ?>" aria-current="true">Magyar</a>
               <a href="<?php echo esc_url(home_url('/en/')); ?>">English</a>
               <a href="<?php echo esc_url(home_url('/de/')); ?>">Deutsch</a>
             </div>

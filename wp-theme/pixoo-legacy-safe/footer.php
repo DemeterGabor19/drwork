@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a class="brand footer-brand" href="<?php echo esc_url(home_url('/')); ?>">
+          <a class="brand footer-brand" href="<?php echo esc_url(home_url('/fooldal/')); ?>">
             <img
               class="brand-logo"
               src="<?php echo esc_url(drwork_acf_image_url('site_footer_logo', drwork_asset_url('images/common/logo.png'))); ?>"
@@ -33,7 +33,7 @@ if (!defined('ABSPATH')) {
         <div class="footer-legal-links">
           <a href="<?php echo esc_url(home_url('/adatkezeles/')); ?>"><?php esc_html_e('Adatkezelés', 'drwork'); ?></a>
           <a href="<?php echo esc_url(home_url('/impresszum/')); ?>"><?php esc_html_e('Impresszum', 'drwork'); ?></a>
-          <a href="<?php echo esc_url(home_url('/cookie/')); ?>"><?php esc_html_e('Cookie tájékoztató', 'drwork'); ?></a>
+          <a href="<?php echo esc_url(home_url('/cookie-tajekoztato/')); ?>"><?php esc_html_e('Cookie tájékoztató', 'drwork'); ?></a>
         </div>
       </div>
     </footer>

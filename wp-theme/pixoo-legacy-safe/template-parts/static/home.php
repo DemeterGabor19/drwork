@@ -1,4 +1,4 @@
-<main>
+﻿<main>
       <!-- @include: ./template-parts/sections/hero.html -->
       <section class="section page-hero home-hero">
         <div class="container page-hero-grid">
@@ -277,7 +277,7 @@
                 <img
                   class="mockup-shirt"
                   data-mockup-image
-                  src="/assets/images/cloths/F%C3%A9rfi%20p%C3%B3l%C3%B3/f%C3%A9rfi-sz%C3%BCrke-eleje.png"
+                  src="/assets/images/cloths/male-tshirt/male-tshirt-gray-front.png"
                   loading="lazy"
                   decoding="async"
                   alt="Szürke férfi póló látványterv"
@@ -300,7 +300,7 @@
                 data-product="maleTshirt"
               >
                 <img
-                  src="/assets/images/cloths/F%C3%A9rfi%20p%C3%B3l%C3%B3/f%C3%A9rfi-sz%C3%BCrke-eleje.png"
+                  src="/assets/images/cloths/male-tshirt/male-tshirt-gray-front.png"
                   alt="Férfi póló"
                 />
                 <span>Férfi póló</span>
@@ -311,7 +311,7 @@
                 data-product="malePolo"
               >
                 <img
-                  src="/assets/images/cloths/F%C3%A9rfi%20gall%C3%A9ros%20p%C3%B3l%C3%B3/f%C3%A9rfi-gall%C3%A9ros-sz%C3%BCrke-eleje.png"
+                  src="/assets/images/cloths/male-polo/male-polo-gray-front.png"
                   loading="lazy"
                   decoding="async"
                   alt="Férfi galléros póló"
@@ -320,7 +320,7 @@
               </button>
               <button class="thumb" type="button" data-product="femaleTshirt">
                 <img
-                  src="/assets/images/cloths/N%C5%91i%20p%C3%B3l%C3%B3/n%C5%91i-p%C3%B3l%C3%B3-sz%C3%BCrke-eleje.png"
+                  src="/assets/images/cloths/female-tshirt/female-tshirt-gray-front.png"
                   loading="lazy"
                   decoding="async"
                   alt="Női póló"
@@ -329,7 +329,7 @@
               </button>
               <button class="thumb" type="button" data-product="femalePolo">
                 <img
-                  src="/assets/images/cloths/N%C5%91i%20gall%C3%A9ros%20p%C3%B3l%C3%B3/n%C5%91i-gall%C3%A9ros-sz%C3%BCrke-eleje.png"
+                  src="/assets/images/cloths/female-polo/female-polo-gray-front.png"
                   loading="lazy"
                   decoding="async"
                   alt="Női galléros póló"
@@ -478,19 +478,24 @@
                 Minden projekt más. Más logó, más elhelyezés, más darabszám,
                 más igények. Mi nem terméket árulunk, mi megoldást készítünk.
               </p>
-              <a class="btn btn-outline-light" href="/kapcsolat.html#ajanlatkeres">
+            </div>
+            <div class="no-shop-mobile-row">
+              <a class="btn btn-outline-light no-shop-cta-mobile" href="/kapcsolat.html#ajanlatkeres">
                 Tudj meg többet
               </a>
+              <div class="no-shop-visual" aria-hidden="true">
+                <img
+                  src="/assets/images/icons/kosar-x-icon.png"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  aria-hidden="true"
+                />
+              </div>
             </div>
-            <div class="no-shop-visual" aria-hidden="true">
-              <img
-                src="/assets/images/icons/kosar-x-icon.png"
-                alt=""
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </div>
+            <a class="btn btn-outline-light no-shop-cta-desktop" href="/kapcsolat.html#ajanlatkeres">
+              Tudj meg többet
+            </a>
             </div>
           </article>
 
@@ -557,13 +562,19 @@
                   <span aria-hidden="true">›</span>
                 </a> -->
               </div>
-              <div class="support-visual size-visual" aria-hidden="true">
-                <img
-                  src="/assets/images/icons/m%C3%A9ret.png"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
+              <div class="size-mobile-row">
+                <a class="btn btn-ghost size-mobile-cta" href="/kapcsolat.html#ajanlatkeres">
+                  Érdeklődök
+                  <span aria-hidden="true">›</span>
+                </a>
+                <div class="support-visual size-visual" aria-hidden="true">
+                  <img
+                    src="/assets/images/icons/m%C3%A9ret.png"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
             </div>
           </article>
@@ -605,10 +616,6 @@
             class="cta-bg-logo"
             src="/assets/images/home/logo.v1.png"
             alt=""
-            width="2048"
-            height="2048"
-            loading="lazy"
-            decoding="async"
             aria-hidden="true"
           />
           <div>

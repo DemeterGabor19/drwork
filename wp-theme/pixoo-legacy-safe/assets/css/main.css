@@ -1300,7 +1300,7 @@ img {
 }
 
 .decision-card-dark p:not(.eyebrow) {
-  margin-bottom: 5.4rem;
+  margin-bottom: 0;
   color: var(--text-on-dark-muted);
 }
 
@@ -1311,6 +1311,15 @@ img {
 
 .decision-card-dark .decision-copy {
   transform: translateX(-1.15rem);
+}
+
+.decision-card-dark .no-shop-cta-desktop {
+  display: flex;
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
+  width: fit-content;
+  margin-top: calc(5.4rem - clamp(1.4rem, 3vw, 3rem));
 }
 
 .no-shop-visual {
@@ -1331,6 +1340,14 @@ img {
   height: 82%;
   object-fit: contain;
   filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.34));
+}
+
+.no-shop-mobile-row {
+  display: contents;
+}
+
+.no-shop-cta-mobile {
+  display: none;
 }
 
 .decision-card-light {
@@ -1461,6 +1478,14 @@ img {
   min-height: 210px;
 }
 
+.size-mobile-row {
+  display: contents;
+}
+
+.size-mobile-cta {
+  display: none;
+}
+
 .support-visual img {
   width: 100%;
   max-height: 300px;
@@ -1479,7 +1504,7 @@ img {
 .delivery-visual img {
   max-width: 520px;
   max-height: 300px;
-  transform: translateX(1.2rem);
+  transform: none;
 }
 
 .cta-band {
@@ -2678,7 +2703,10 @@ img {
   }
 
   .mockup-builder {
-    min-height: 700px;
+    min-height: auto;
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
   }
 
   .mockup-panel {
@@ -2686,19 +2714,30 @@ img {
     top: auto;
     left: auto;
     width: auto;
-    margin: 1rem;
+    margin: 0;
   }
 
   .mockup-stage {
-    inset: 225px 0 5.7rem;
+    position: relative;
+    inset: auto;
+    min-height: 330px;
     padding-left: 0;
   }
 
+  .mockup-stage::after {
+    bottom: 1rem;
+  }
+
   .mockup-canvas {
-    width: min(420px, 82%);
+    width: min(360px, 84%);
+    max-height: none;
   }
 
   .mockup-thumbs {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2801,11 +2840,17 @@ img {
   }
 
   .mockup-builder {
-    min-height: 720px;
+    min-height: auto;
+    padding: 0.8rem;
   }
 
   .mockup-stage {
-    inset: 250px 0 7.2rem;
+    inset: auto;
+    min-height: 270px;
+  }
+
+  .mockup-canvas {
+    width: min(290px, 82%);
   }
 
   .mockup-thumbs {
@@ -2878,11 +2923,33 @@ img {
     transform: none;
   }
 
+  .decision-card-dark p:not(.eyebrow),
+  .support-card-size .support-copy > p:not(.eyebrow) {
+    margin-bottom: 1.35rem;
+  }
+
+  .no-shop-mobile-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  .decision-card-dark .no-shop-cta-desktop {
+    display: none;
+  }
+
+  .no-shop-cta-mobile {
+    display: inline-flex;
+    flex: 0 0 auto;
+  }
+
   .no-shop-visual {
     width: 130px;
     opacity: 0.82;
     justify-self: end;
-    margin-top: -1rem;
+    margin-top: 0;
+    flex: 0 0 auto;
   }
 
   .price-formula {
@@ -2928,6 +2995,28 @@ img {
     min-height: 150px;
     justify-self: end;
     width: min(260px, 70vw);
+  }
+
+  .size-mobile-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  .size-mobile-cta {
+    display: inline-flex;
+    flex: 0 0 auto;
+  }
+
+  .support-card-size .support-visual {
+    width: min(150px, 40vw);
+    min-height: 120px;
+  }
+
+  .support-card-delivery .support-visual {
+    justify-self: center;
+    width: min(270px, 82vw);
   }
 
   .size-visual::after {
