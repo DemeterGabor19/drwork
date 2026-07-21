@@ -1,24 +1,28 @@
 const products = {
   maleTshirt: {
     label: "Férfi póló",
+    labelKey: "home.showcase.product.maleTshirt",
     folder: "male-tshirt",
     filePrefix: "male-tshirt",
     defaultColor: "gray",
   },
   malePolo: {
     label: "Férfi galléros póló",
+    labelKey: "home.showcase.product.malePolo",
     folder: "male-polo",
     filePrefix: "male-polo",
     defaultColor: "gray",
   },
   femaleTshirt: {
     label: "Női póló",
+    labelKey: "home.showcase.product.femaleTshirt",
     folder: "female-tshirt",
     filePrefix: "female-tshirt",
     defaultColor: "gray",
   },
   femalePolo: {
     label: "Női galléros póló",
+    labelKey: "home.showcase.product.femalePolo",
     folder: "female-polo",
     filePrefix: "female-polo",
     defaultColor: "gray",
@@ -46,6 +50,8 @@ const viewLabels = {
   back: "back",
   side: "side",
 };
+
+const translate = (key, fallback) => window.drworkI18n?.t(key) || fallback;
 
 const sideLogoTransform =
   "translate(-50%, -50%) perspective(520px) rotateY(42deg) rotateZ(-2deg)";
@@ -405,12 +411,13 @@ export function initMockupBuilder() {
 
   const render = () => {
     const product = products[state.product];
+    const productName = translate(product.labelKey, product.label);
     const position = logoPositions[state.product][state.color][state.view];
     const effect = getLogoEffect(state.color, state.view);
     const imagePath = buildImagePath(state.product, state.color, state.view);
 
     image.src = imagePath;
-    image.alt = `${colorLabels[state.color]} ${product.label.toLowerCase()} látványterv`;
+    image.alt = `${colorLabels[state.color]} ${productName.toLowerCase()} látványterv`;
 
     logo.src = getLogoImagePath(state.color);
     logo.style.transform = position.transform || "translate(-50%, -50%)";
@@ -419,7 +426,7 @@ export function initMockupBuilder() {
     logo.style.filter = effect.filter;
     applyLogoLayout();
 
-    productLabel.firstChild.textContent = product.label;
+    productLabel.firstChild.textContent = productName;
 
     setActive(productButtons, "product", state.product);
     setActive(colorButtons, "color", state.color);
@@ -428,6 +435,7 @@ export function initMockupBuilder() {
 
   image.addEventListener("load", applyLogoLayout);
   window.addEventListener("resize", applyLogoLayout);
+  window.addEventListener("drwork:languagechange", render);
 
   productButtons.forEach((button) => {
     button.addEventListener("click", () => {

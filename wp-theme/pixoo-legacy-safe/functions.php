@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('DRWORK_VERSION', '1.2.2');
+define('DRWORK_VERSION', '1.5.5');
 
 function drwork_setup(): void
 {

@@ -37,10 +37,10 @@ if (!defined('ABSPATH')) {
         </button>
 
         <nav class="main-nav" id="mainNav">
-          <a href="<?php echo esc_url(home_url('/fooldal/')); ?>"><?php esc_html_e('Főoldal', 'drwork'); ?></a>
-          <a href="<?php echo esc_url(home_url('/technologiak/')); ?>"><?php esc_html_e('Technológiák', 'drwork'); ?></a>
-          <a href="<?php echo esc_url(home_url('/markak/')); ?>"><?php esc_html_e('Márkák', 'drwork'); ?></a>
-          <a href="<?php echo esc_url(home_url('/kapcsolat/')); ?>"><?php esc_html_e('Kapcsolat', 'drwork'); ?></a>
+          <a href="<?php echo esc_url(home_url('/fooldal/')); ?>" data-i18n="nav.home"><?php esc_html_e('Főoldal', 'drwork'); ?></a>
+          <a href="<?php echo esc_url(home_url('/technologiak/')); ?>" data-i18n="nav.technologies"><?php esc_html_e('Technológiák', 'drwork'); ?></a>
+          <a href="<?php echo esc_url(home_url('/markak/')); ?>" data-i18n="nav.brands"><?php esc_html_e('Márkák', 'drwork'); ?></a>
+          <a href="<?php echo esc_url(home_url('/kapcsolat/')); ?>" data-i18n="nav.contact"><?php esc_html_e('Kapcsolat', 'drwork'); ?></a>
         </nav>
 
         <div class="nav-actions">
@@ -60,16 +60,16 @@ if (!defined('ABSPATH')) {
           </div>
 
           <details class="language-switcher">
-            <summary aria-label="<?php esc_attr_e('Nyelvválasztás', 'drwork'); ?>">HU</summary>
+            <summary aria-label="<?php esc_attr_e('Nyelvválasztás', 'drwork'); ?>" data-i18n-current-lang>HU</summary>
             <div class="language-menu">
-              <a href="<?php echo esc_url(home_url('/fooldal/')); ?>" aria-current="true">Magyar</a>
-              <a href="<?php echo esc_url(home_url('/en/')); ?>">English</a>
-              <a href="<?php echo esc_url(home_url('/de/')); ?>">Deutsch</a>
+              <button type="button" aria-current="true" data-lang="hu">Magyar</button>
+              <button type="button" data-lang="en">English</button>
+              <button type="button" data-lang="de">Deutsch</button>
             </div>
           </details>
         </div>
 
-        <a class="btn btn-outline hide-mobile" href="<?php echo esc_url(home_url('/kapcsolat/#ajanlatkeres')); ?>">
+        <a class="btn btn-outline hide-mobile" href="<?php echo esc_url(home_url('/kapcsolat/#ajanlatkeres')); ?>" data-i18n="nav.quote">
           <?php esc_html_e('Ajánlatot kérek', 'drwork'); ?>
         </a>
       </div>

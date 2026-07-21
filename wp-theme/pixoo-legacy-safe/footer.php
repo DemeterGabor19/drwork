@@ -13,27 +13,27 @@ if (!defined('ABSPATH')) {
               alt="Dr.Work"
             />
           </a>
-          <p><?php esc_html_e('Egyedi munkaruhák, profin nyomtatva.', 'drwork'); ?></p>
+          <p data-i18n="footer.tagline">Egyedi munkaruhák, profin nyomtatva.</p>
         </div>
         <div>
-          <h3><?php esc_html_e('Gyors linkek', 'drwork'); ?></h3>
-          <a href="<?php echo esc_url(home_url('/technologiak/')); ?>"><?php esc_html_e('Technológiák', 'drwork'); ?></a>
-          <a href="<?php echo esc_url(home_url('/markak/')); ?>"><?php esc_html_e('Márkák', 'drwork'); ?></a>
-          <a href="<?php echo esc_url(home_url('/kapcsolat/')); ?>"><?php esc_html_e('Kapcsolat', 'drwork'); ?></a>
+          <h3 data-i18n="footer.quickLinks">Gyors linkek</h3>
+          <a href="<?php echo esc_url(home_url('/technologiak/')); ?>" data-i18n="nav.technologies">Technológiák</a>
+          <a href="<?php echo esc_url(home_url('/markak/')); ?>" data-i18n="nav.brands">Márkák</a>
+          <a href="<?php echo esc_url(home_url('/kapcsolat/')); ?>" data-i18n="nav.contact">Kapcsolat</a>
         </div>
         <div>
-          <h3><?php esc_html_e('Kapcsolat', 'drwork'); ?></h3>
+          <h3 data-i18n="footer.contact">Kapcsolat</h3>
           <a href="tel:+36704515370">+36704515370</a>
           <a href="mailto:iroda@drwork.hu">iroda@drwork.hu</a>
-          <p>6400 Kiskunhalas, Kéve utca 26.</p>
+          <p data-i18n="footer.address">6400 Kiskunhalas, Kéve utca 26.</p>
         </div>
       </div>
       <div class="container footer-bottom">
-        <p>© <span id="year"></span> Dr.Work. <?php esc_html_e('Minden jog fenntartva.', 'drwork'); ?></p>
+        <p data-i18n="footer.copyright" data-i18n-html>© <span id="year"></span> Dr.Work. Minden jog fenntartva.</p>
         <div class="footer-legal-links">
-          <a href="<?php echo esc_url(home_url('/adatkezeles/')); ?>"><?php esc_html_e('Adatkezelés', 'drwork'); ?></a>
-          <a href="<?php echo esc_url(home_url('/impresszum/')); ?>"><?php esc_html_e('Impresszum', 'drwork'); ?></a>
-          <a href="<?php echo esc_url(home_url('/cookie-tajekoztato/')); ?>"><?php esc_html_e('Cookie tájékoztató', 'drwork'); ?></a>
+          <a href="<?php echo esc_url(home_url('/adatkezeles/')); ?>" data-i18n="footer.privacy">Adatkezelés</a>
+          <a href="<?php echo esc_url(home_url('/impresszum/')); ?>" data-i18n="footer.legalNotice">Impresszum</a>
+          <a href="<?php echo esc_url(home_url('/cookie-tajekoztato/')); ?>" data-i18n="footer.cookie">Cookie tájékoztató</a>
         </div>
       </div>
     </footer>

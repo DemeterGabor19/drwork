@@ -307,16 +307,21 @@ img {
   box-shadow: var(--shadow-soft);
 }
 
-.language-menu a {
+.language-menu :is(a, button) {
   padding: 0.55rem 0.65rem;
   color: var(--ink-soft);
+  border: 0;
   border-radius: var(--radius-sm);
+  background: transparent;
   font-size: 0.86rem;
   font-weight: 700;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
-.language-menu a:hover,
-.language-menu a[aria-current="true"] {
+.language-menu :is(a, button):hover,
+.language-menu :is(a, button)[aria-current="true"] {
   color: var(--brand);
   background: rgba(238, 47, 61, 0.06);
 }

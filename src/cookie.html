@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="hu-HU">
+<html lang="hu-HU" translate="no" class="notranslate">
   <head>
     <meta charset="UTF-8" />
+    <meta name="google" content="notranslate" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="lang" content="hu-HU" />
@@ -28,58 +29,114 @@
           <span></span><span></span><span></span>
         </button>
         <nav class="main-nav" id="mainNav">
-          <a href="/">Főoldal</a>
-          <a href="/technologiak.html">Technológiák</a>
-          <a href="/markak.html">Márkák</a>
-          <a href="/kapcsolat.html">Kapcsolat</a>
+          <a href="/" data-i18n="nav.home">Főoldal</a>
+          <a href="/technologiak.html" data-i18n="nav.technologies">Technológiák</a>
+          <a href="/markak.html" data-i18n="nav.brands">Márkák</a>
+          <a href="/kapcsolat.html" data-i18n="nav.contact">Kapcsolat</a>
         </nav>
-        <a class="btn btn-outline hide-mobile" href="/kapcsolat.html#ajanlatkeres">Ajánlatot kérek</a>
+
+        <div class="nav-actions">
+          <div class="social-links" aria-label="Közösségi média">
+            <a href="https://www.facebook.com/dr.work" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14.2 8.3V6.9c0-.7.5-1.1 1.2-1.1h1.4V3.3c-.7-.1-1.4-.2-2.1-.2-2.2 0-3.8 1.4-3.8 3.9v1.3H8.5V11h2.4v9.8h3.3V11h2.3l.4-2.7h-2.7Z" />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/drwork_wear/" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="4.5" />
+                <circle cx="12" cy="12" r="3.4" />
+                <circle cx="16.8" cy="7.2" r="0.9" />
+              </svg>
+            </a>
+          </div>
+
+          <details class="language-switcher">
+            <summary aria-label="Nyelvválasztás" data-i18n-current-lang>HU</summary>
+            <div class="language-menu">
+              <button type="button" aria-current="true" data-lang="hu">Magyar</button>
+              <button type="button" data-lang="en">English</button>
+              <button type="button" data-lang="de">Deutsch</button>
+            </div>
+          </details>
+        </div>
+
+        <a class="btn btn-outline hide-mobile" href="/kapcsolat.html#ajanlatkeres" data-i18n="nav.quote">Ajánlatot kérek</a>
       </div>
     </header>
 
     <main>
       <section class="section legal-page">
         <div class="container legal-layout">
-          <p class="eyebrow">Jogi információk</p>
-          <h1>Cookie tájékoztató</h1>
-          <p class="legal-lead">
-            A cookie-k kis szövegfájlok, amelyek a böngészőben tárolódhatnak.
-            Segíthetnek a weboldal működésében, mérésében vagy kényelmi funkcióiban.
+          <p class="eyebrow" data-i18n="cookie.eyebrow">Jogi információk</p>
+          <h1 data-i18n="cookie.title">Cookie tájékoztató</h1>
+          <p class="legal-lead" data-i18n="cookie.intro">
+            Ez a tájékoztató összefoglalja, hogy a Dr.Work weboldal milyen
+            cookie-kat használ, és hogyan tudod kezelni ezeket a böngésződben.
           </p>
 
           <article class="legal-card">
-            <h2>Jelenlegi cookie használat</h2>
-            <p>
-              A weboldal jelenlegi statikus működéséhez nem használunk külön
-              marketing vagy analitikai cookie-t. Ha később Google Analytics,
-              Meta Pixel vagy más mérőkód kerül be, ezt a tájékoztatót és a
-              hozzájárulási megoldást frissíteni kell.
+            <h2 data-i18n="cookie.what.title">Mik azok a cookie-k?</h2>
+            <p data-i18n="cookie.what.text">
+              A cookie-k kis méretű szövegfájlok, amelyeket a weboldalak a
+              böngészőben helyezhetnek el. Segíthetnek a weboldal megfelelő
+              működésében, a felhasználói beállítások megjegyzésében vagy
+              bizonyos funkciók biztosításában.
             </p>
           </article>
 
           <article class="legal-card">
-            <h2>Szükséges cookie-k</h2>
-            <p>
-              A technikai működéshez szükséges cookie-k hozzájárulás nélkül is
-              használhatók, ha azok kizárólag a weboldal alapvető működéséhez
-              szükségesek.
+            <h2 data-i18n="cookie.current.title">Jelenlegi cookie használat</h2>
+            <p data-i18n="cookie.current.text1">
+              A Dr.Work weboldal jelenleg nem használ külön analitikai vagy
+              marketing célú cookie-kat. Nem használunk Google Analytics, Meta
+              Pixel vagy más hirdetési mérőkódot.
+            </p>
+            <p data-i18n="cookie.current.text2">
+              A weboldal működéséhez kapcsolódóan előfordulhatnak technikailag
+              szükséges cookie-k, például a WordPress rendszer, az adminisztrációs
+              felület vagy egyes biztonsági funkciók működéséhez. Ezek célja
+              kizárólag a weboldal alapvető működésének biztosítása.
             </p>
           </article>
 
           <article class="legal-card">
-            <h2>Analitikai és marketing cookie-k</h2>
-            <p>
-              Analitikai vagy marketing célú cookie-k csak előzetes hozzájárulással
-              használhatók. Ilyen funkció bevezetésekor cookie banner és részletes
-              beállítási lehetőség szükséges.
+            <h2 data-i18n="cookie.essential.title">Szükséges cookie-k</h2>
+            <p data-i18n="cookie.essential.text">
+              A technikailag szükséges cookie-k a weboldal működéséhez kellenek.
+              Ezek nem marketing vagy profilalkotási célt szolgálnak, és
+              hozzájárulás nélkül is használhatók, ha kizárólag a szolgáltatás
+              működéséhez szükségesek.
             </p>
           </article>
 
           <article class="legal-card">
-            <h2>Cookie-k kezelése</h2>
-            <p>
-              A cookie-kat a böngésződ beállításaiban tudod törölni vagy tiltani.
-              A böngésző gyártójának súgója részletes útmutatást ad ehhez.
+            <h2 data-i18n="cookie.analytics.title">Analitikai és marketing cookie-k</h2>
+            <p data-i18n="cookie.analytics.text1">
+              A weboldal jelenleg nem használ analitikai vagy marketing cookie-kat.
+            </p>
+            <p data-i18n="cookie.analytics.text2">
+              Ha a későbbiekben ilyen cookie-kat vezetünk be, például látogatottsági
+              méréshez vagy hirdetésekhez, akkor erről előzetesen tájékoztatást
+              adunk, és ahol szükséges, hozzájárulást kérünk.
+            </p>
+          </article>
+
+          <article class="legal-card">
+            <h2 data-i18n="cookie.manage.title">Cookie-k kezelése</h2>
+            <p data-i18n="cookie.manage.text">
+              A cookie-kat a böngésződ beállításaiban tudod törölni, tiltani vagy
+              korlátozni. A legtöbb böngésző lehetőséget ad arra, hogy megtekintsd
+              a tárolt cookie-kat, illetve módosítsd a cookie-kezelési beállításokat.
+            </p>
+          </article>
+
+          <article class="legal-card">
+            <h2 data-i18n="cookie.contact.title">Kapcsolat</h2>
+            <p data-i18n="cookie.contact.text" data-i18n-html>
+              Cookie-kezeléssel kapcsolatos kérdés esetén az alábbi elérhetőségen
+              tudsz kapcsolatba lépni velünk:
+              <a href="mailto:iroda@drwork.hu">iroda@drwork.hu</a>.
             </p>
           </article>
         </div>
@@ -92,30 +149,30 @@
           <a class="brand footer-brand" href="/">
             <img class="brand-logo" src="/assets/images/common/logo.png" alt="Dr.Work" />
           </a>
-          <p>Egyedi munkaruhák, profin nyomtatva.</p>
+          <p data-i18n="footer.tagline">Egyedi munkaruhák, profin nyomtatva.</p>
         </div>
         <div>
-          <h3>Gyors linkek</h3>
-          <a href="/technologiak.html">Technológiák</a>
-          <a href="/markak.html">Márkák</a>
-          <a href="/kapcsolat.html">Kapcsolat</a>
+          <h3 data-i18n="footer.quickLinks">Gyors linkek</h3>
+          <a href="/technologiak.html" data-i18n="nav.technologies">Technológiák</a>
+          <a href="/markak.html" data-i18n="nav.brands">Márkák</a>
+          <a href="/kapcsolat.html" data-i18n="nav.contact">Kapcsolat</a>
         </div>
         <div>
-          <h3>Kapcsolat</h3>
+          <h3 data-i18n="footer.contact">Kapcsolat</h3>
           <a href="tel:+36704515370">+36704515370</a>
           <a href="mailto:iroda@drwork.hu">iroda@drwork.hu</a>
-          <p>6400 Kiskunhalas, Kéve utca 26.</p>
+          <p data-i18n="footer.address">6400 Kiskunhalas, Kéve utca 26.</p>
         </div>
       </div>
       <div class="container footer-bottom">
-        <p>© <span id="year"></span> Dr.Work. Minden jog fenntartva.</p>
+        <p data-i18n="footer.copyright" data-i18n-html>© <span id="year"></span> Dr.Work. Minden jog fenntartva.</p>
         <div class="footer-legal-links">
-          <a href="/adatkezeles.html">Adatkezelés</a>
-          <a href="/impresszum.html">Impresszum</a>
-          <a href="/cookie.html" aria-current="page">Cookie tájékoztató</a>
+          <a href="/adatkezeles.html" data-i18n="footer.privacy">Adatkezelés</a>
+          <a href="/impresszum.html" data-i18n="footer.legalNotice">Impresszum</a>
+          <a href="/cookie.html" aria-current="page" data-i18n="footer.cookie">Cookie tájékoztató</a>
         </div>
       </div>
     </footer>
-    <script type="module" src="/assets/js/main.js"></script>
+    <script type="module" src="/assets/js/main.js?v=20260721-language-fix2"></script>
   </body>
 </html>
