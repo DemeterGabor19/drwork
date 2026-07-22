@@ -1225,6 +1225,15 @@ const brandDetails = {
 };
 
 function getInitialLanguage() {
+  const getStoredLanguage = (storage) => {
+    try {
+      const value = storage.getItem("drwork-language");
+      return supportedLanguages.includes(value) ? value : null;
+    } catch {
+      return null;
+    }
+  };
+
   const urlLanguage = new URLSearchParams(window.location.search).get("lang");
 
   if (supportedLanguages.includes(urlLanguage)) {
@@ -1237,34 +1246,16 @@ function getInitialLanguage() {
     return pathLanguage;
   }
 
-  const sessionLanguage = window.sessionStorage.getItem("drwork-language");
-
-  if (supportedLanguages.includes(sessionLanguage)) {
-    return sessionLanguage;
-  }
-
-  const storedLanguage = window.localStorage.getItem("drwork-language");
-
-  if (supportedLanguages.includes(storedLanguage)) {
-    return storedLanguage;
-  }
-
-  return "hu";
+  return getStoredLanguage(window.sessionStorage) || getStoredLanguage(window.localStorage) || "hu";
 }
 
 function persistLanguage(language) {
-  window.localStorage.setItem("drwork-language", language);
-  window.sessionStorage.setItem("drwork-language", language);
-
-  const url = new URL(window.location.href);
-
-  if (language === "hu") {
-    url.searchParams.delete("lang");
-  } else {
-    url.searchParams.set("lang", language);
+  try {
+    window.localStorage.setItem("drwork-language", language);
+    window.sessionStorage.setItem("drwork-language", language);
+  } catch {
+    // Storage can be blocked in some browsers; the visible language switch should still work.
   }
-
-  window.history.replaceState({}, "", url);
 }
 
 function applyLanguage(language) {
@@ -1311,8 +1302,16 @@ function applyLanguage(language) {
       return;
     }
 
-    card.querySelector("h2").textContent = detail.title;
-    card.querySelector(".brand-lead").textContent = detail.subtitle;
+    const title = card.querySelector("h2");
+    const lead = card.querySelector(".brand-lead");
+
+    if (title) {
+      title.textContent = detail.title;
+    }
+
+    if (lead) {
+      lead.textContent = detail.subtitle;
+    }
 
     const description = [...card.children].find(
       (child) => child.tagName === "P" && !child.classList.contains("brand-lead") && !child.classList.contains("ideal"),
@@ -1322,11 +1321,21 @@ function applyLanguage(language) {
       description.textContent = detail.description;
     }
 
-    card.querySelector("h3").textContent = brandDictionary.recommendedTitle;
+    const recommendedTitle = card.querySelector("h3");
+
+    if (recommendedTitle) {
+      recommendedTitle.textContent = brandDictionary.recommendedTitle;
+    }
+
     card.querySelectorAll("li").forEach((item, index) => {
       item.textContent = detail.points[index] || item.textContent;
     });
-    card.querySelector(".ideal").textContent = detail.summary;
+
+    const summary = card.querySelector(".ideal");
+
+    if (summary) {
+      summary.textContent = detail.summary;
+    }
   });
 
   document.querySelectorAll("[data-i18n-current-lang]").forEach((element) => {
@@ -1348,7 +1357,6 @@ function applyLanguage(language) {
 export function initI18n() {
   let currentLanguage = getInitialLanguage();
 
-  persistLanguage(currentLanguage);
   applyLanguage(currentLanguage);
 
   document.querySelectorAll("[data-lang]").forEach((link) => {

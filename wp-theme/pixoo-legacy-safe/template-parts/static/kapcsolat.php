@@ -45,7 +45,11 @@
           <div class="contact-form-card reveal">
             <p class="eyebrow" data-i18n="contact.form.eyebrow">Ajánlatkérés</p>
             <h2 class="section-title" data-i18n="contact.form.heading">Írd meg, mire van szükséged</h2>
-            <form class="contact-form" action="#" method="post">
+            <form class="contact-form" action="/wp-json/drwork/v1/contact" method="post" data-contact-form novalidate>
+              <label class="form-honeypot" aria-hidden="true">
+                <span>Weboldal</span>
+                <input type="text" name="website" tabindex="-1" autocomplete="off" />
+              </label>
               <div class="form-row">
                 <label>
                   <span data-i18n="contact.form.name">Név</span>
@@ -98,7 +102,7 @@
               </label>
 
               <label class="form-consent">
-                <input type="checkbox" name="privacy" required />
+                <input type="checkbox" name="privacy_consent" value="1" required />
                 <span data-i18n="contact.form.consent" data-i18n-html>
                   Elolvastam és elfogadom az
                   <a href="/adatkezeles.html" target="_blank" rel="noopener">
@@ -111,6 +115,7 @@
                 Ajánlatot kérek
                 <span aria-hidden="true">›</span>
               </button>
+              <p class="form-status" data-form-status role="alert" hidden></p>
             </form>
           </div>
 

@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('DRWORK_VERSION', '1.5.5');
+define('DRWORK_VERSION', '1.6.6');
 
 function drwork_setup(): void
 {
@@ -60,6 +60,76 @@ function drwork_acf_image_field_name(string $page_slug, string $asset_path): str
 
     return 'image_' . str_replace('-', '_', $field);
 }
+
+function drwork_register_acf_field_groups(): void
+{
+    if (!function_exists('acf_add_local_field_group')) {
+        return;
+    }
+
+    $technologies_location = [
+        [
+            [
+                'param' => 'page_template',
+                'operator' => '==',
+                'value' => 'page-technologiak.php',
+            ],
+        ],
+    ];
+
+    $technologies_page = get_page_by_path('technologiak');
+    if ($technologies_page instanceof WP_Post) {
+        $technologies_location[] = [
+            [
+                'param' => 'page',
+                'operator' => '==',
+                'value' => (string) $technologies_page->ID,
+            ],
+        ];
+    }
+
+    acf_add_local_field_group([
+        'key' => 'group_drwork_technologies_images',
+        'title' => 'Dr.Work - Technologiak kepek',
+        'fields' => [
+            [
+                'key' => 'field_drwork_technologies_print_image',
+                'label' => 'Technologiaink - Nyomtatas kep',
+                'name' => 'image_technologiak_home_nyomtatas',
+                'type' => 'image',
+                'return_format' => 'array',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_drwork_technologies_embroidery_image',
+                'label' => 'Technologiaink - Himzes kep',
+                'name' => 'image_technologiak_home_himzes',
+                'type' => 'image',
+                'return_format' => 'array',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_drwork_technologies_accessories_image',
+                'label' => 'Technologiaink - Kiegeszitok kep',
+                'name' => 'image_technologiak_home_kiegeszitok',
+                'type' => 'image',
+                'return_format' => 'array',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ],
+        ],
+        'location' => $technologies_location,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'active' => true,
+        'show_in_rest' => 0,
+    ]);
+}
+add_action('acf/init', 'drwork_register_acf_field_groups');
 
 function drwork_image_should_stay_theme_asset(string $image_prefix, string $asset_path): bool
 {
@@ -172,11 +242,191 @@ function drwork_enqueue_assets(): void
         'drwork-main',
         'window.drworkTheme = ' . wp_json_encode([
             'assetsUrl' => get_template_directory_uri() . '/assets',
+            'contactEndpoint' => esc_url_raw(rest_url('drwork/v1/contact')),
         ]) . ';',
         'before'
     );
 }
 add_action('wp_enqueue_scripts', 'drwork_enqueue_assets');
+
+function drwork_contact_message(string $key, string $language = 'hu'): string
+{
+    $messages = [
+        'hu' => [
+            'success' => 'Köszönjük, megkaptuk az ajánlatkérést. Hamarosan jelentkezünk.',
+            'required' => 'Kérlek, töltsd ki a kötelező mezőket.',
+            'email' => 'Kérlek, érvényes email címet adj meg.',
+            'consent' => 'Kérlek, fogadd el az adatkezelési tájékoztatót.',
+            'turnstile' => 'A spamvédelmi ellenőrzés sikertelen volt. Kérlek, próbáld újra.',
+            'send' => 'Nem sikerült elküldeni az üzenetet. Kérlek, próbáld újra később.',
+        ],
+        'en' => [
+            'success' => 'Thank you, we received your request. We will get back to you soon.',
+            'required' => 'Please fill in the required fields.',
+            'email' => 'Please enter a valid email address.',
+            'consent' => 'Please accept the Privacy Policy.',
+            'turnstile' => 'The spam protection check failed. Please try again.',
+            'send' => 'We could not send your message. Please try again later.',
+        ],
+        'de' => [
+            'success' => 'Vielen Dank, wir haben Ihre Anfrage erhalten. Wir melden uns bald.',
+            'required' => 'Bitte füllen Sie die Pflichtfelder aus.',
+            'email' => 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+            'consent' => 'Bitte akzeptieren Sie die Datenschutzerklärung.',
+            'turnstile' => 'Die Spam-Schutzprüfung ist fehlgeschlagen. Bitte versuchen Sie es erneut.',
+            'send' => 'Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.',
+        ],
+    ];
+
+    $dictionary = $messages[$language] ?? $messages['hu'];
+
+    return $dictionary[$key] ?? $messages['hu'][$key] ?? '';
+}
+
+function drwork_contact_error_response(string $message, int $status = 400): WP_REST_Response
+{
+    return new WP_REST_Response([
+        'success' => false,
+        'data' => [
+            'message' => $message,
+        ],
+    ], $status);
+}
+
+function drwork_verify_turnstile_token(string $token): bool
+{
+    if (!defined('DRWORK_TURNSTILE_SECRET') || DRWORK_TURNSTILE_SECRET === '') {
+        return true;
+    }
+
+    if ($token === '') {
+        return false;
+    }
+
+    $response = wp_remote_post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+        'timeout' => 10,
+        'body' => [
+            'secret' => DRWORK_TURNSTILE_SECRET,
+            'response' => $token,
+            'remoteip' => $_SERVER['REMOTE_ADDR'] ?? '',
+        ],
+    ]);
+
+    if (is_wp_error($response)) {
+        return false;
+    }
+
+    $body = json_decode((string) wp_remote_retrieve_body($response), true);
+
+    return !empty($body['success']);
+}
+
+function drwork_handle_contact_request(WP_REST_Request $request): WP_REST_Response
+{
+    $data = $request->get_params();
+    $language = sanitize_key((string) ($data['language'] ?? 'hu'));
+    $success_message = drwork_contact_message('success', $language);
+
+    if (!empty($data['website'])) {
+        return new WP_REST_Response([
+            'success' => true,
+            'data' => [
+                'message' => $success_message,
+            ],
+        ], 200);
+    }
+
+    $name = sanitize_text_field((string) ($data['name'] ?? ''));
+    $company = sanitize_text_field((string) ($data['company'] ?? ''));
+    $email = sanitize_email((string) ($data['email'] ?? ''));
+    $phone = sanitize_text_field((string) ($data['phone'] ?? ''));
+    $product = sanitize_text_field((string) ($data['product'] ?? ''));
+    $quantity = sanitize_text_field((string) ($data['quantity'] ?? ''));
+    $message = sanitize_textarea_field((string) ($data['message'] ?? ''));
+    $privacy_consent = !empty($data['privacy_consent']) || !empty($data['privacy']);
+    $turnstile_token = sanitize_text_field((string) ($data['cf-turnstile-response'] ?? ''));
+
+    if ($name === '' || $email === '' || $message === '') {
+        return drwork_contact_error_response(drwork_contact_message('required', $language));
+    }
+
+    if (!is_email($email)) {
+        return drwork_contact_error_response(drwork_contact_message('email', $language));
+    }
+
+    if (!$privacy_consent) {
+        return drwork_contact_error_response(drwork_contact_message('consent', $language));
+    }
+
+    if (!drwork_verify_turnstile_token($turnstile_token)) {
+        return drwork_contact_error_response(drwork_contact_message('turnstile', $language));
+    }
+
+    $submission_payload = wp_json_encode([
+        $name,
+        $company,
+        $email,
+        $phone,
+        $product,
+        $quantity,
+        $message,
+    ]);
+    $submission_key = 'drwork_contact_' . hash('sha256', (string) $submission_payload);
+
+    if (get_transient($submission_key)) {
+        return new WP_REST_Response([
+            'success' => true,
+            'data' => [
+                'message' => $success_message,
+            ],
+        ], 200);
+    }
+
+    set_transient($submission_key, '1', 10 * MINUTE_IN_SECONDS);
+
+    $subject = 'Uj ajanlatkeres: ' . $name;
+    $body = implode("\n", [
+        'Uj ajanlatkeres erkezett a Dr.Work weboldalrol.',
+        '',
+        'Nev: ' . $name,
+        'Cegnev: ' . ($company !== '' ? $company : '-'),
+        'Email: ' . $email,
+        'Telefonszam: ' . ($phone !== '' ? $phone : '-'),
+        'Termek: ' . ($product !== '' ? $product : '-'),
+        'Darabszam: ' . ($quantity !== '' ? $quantity : '-'),
+        '',
+        'Uzenet:',
+        $message,
+    ]);
+    $headers = [
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: Dr.Work weboldal <noreply@drwork.hu>',
+        'Reply-To: ' . $name . ' <' . $email . '>',
+    ];
+
+    $sent = wp_mail('iroda@drwork.hu', $subject, $body, $headers);
+
+    if (!$sent) {
+        return drwork_contact_error_response(drwork_contact_message('send', $language), 500);
+    }
+
+    return new WP_REST_Response([
+        'success' => true,
+        'data' => [
+            'message' => $success_message,
+        ],
+    ], 200);
+}
+
+function drwork_register_contact_route(): void
+{
+    register_rest_route('drwork/v1', '/contact', [
+        'methods' => WP_REST_Server::CREATABLE,
+        'callback' => 'drwork_handle_contact_request',
+        'permission_callback' => '__return_true',
+    ]);
+}
+add_action('rest_api_init', 'drwork_register_contact_route');
 
 function drwork_preload_assets(): void
 {
